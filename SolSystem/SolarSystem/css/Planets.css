@@ -22,8 +22,9 @@
 
 .fill{
     background-color: transparent;
-    width: 100%;
+    width: 65%;
     height: 100%;
+    margin-left: 35%;
     position: absolute;
 }
 
