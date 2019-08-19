@@ -211,7 +211,7 @@ if(false){
 
     var myArea = {
         start : function() {
-            this.interval = setInterval(updateArea,50); 
+            this.interval = setInterval(updateArea,10); 
             for(let i = 0; i < myPlanets.length; i++){
                 DrawPlanet(myPlanets[i]);
             }
@@ -230,43 +230,47 @@ if(false){
             
             //calculates the movement of each planet
             for(let i = 0; i < myPlanets.length; i++){
-                if(i != 0){
-                let newX = myPlanets[i].X + myPlanets[i].Move[0];
-                let newY = myPlanets[i].Y + myPlanets[i].Move[1];
-                // myPlanets[i].Move[0] += myPlanets[i].MoveDif;
-                // myPlanets[i].Move[1] -= myPlanets[i].MoveDif;
-                myPlanets[i].Count[0]++;
-                myPlanets[i].Count[1]++;
+                if(i != -1){
+                    for(let y = 0; y < 1; y++){
 
-                if(myPlanets[i].DownUp[0]){
-                    myPlanets[i].Move[0] += myPlanets[i].MoveDif;
-                }else{
-                    myPlanets[i].Move[0] -= myPlanets[i].MoveDif;
-                }
+                        let newX = myPlanets[i].X + myPlanets[i].Move[0];
+                        let newY = myPlanets[i].Y + myPlanets[i].Move[1];
+                        myPlanets[i].Count[0]++;
+                        myPlanets[i].Count[1]++;
 
-                if(myPlanets[i].DownUp[1]){
-                    myPlanets[i].Move[1] += myPlanets[i].MoveDif;
-                }else{
-                    myPlanets[i].Move[1] -= myPlanets[i].MoveDif;
-                }
-
-
-                if(myPlanets[i].Count[0] >= myPlanets[i].Switch){
-                    myPlanets[i].DownUp[1] = !myPlanets[i].DownUp[1];
-                    myPlanets[i].Count[0] = 0;
-                    if(i == 1){
-                        console.log("")
+                        if(myPlanets[i].DownUp[0]){
+                            myPlanets[i].Move[0] += myPlanets[i].MoveDif;
+                        }else{
+                            myPlanets[i].Move[0] -= myPlanets[i].MoveDif;
+                        }
+                        
+                        if(myPlanets[i].DownUp[1]){
+                            myPlanets[i].Move[1] += myPlanets[i].MoveDif;
+                        }else{
+                            myPlanets[i].Move[1] -= myPlanets[i].MoveDif;
+                        }
+                        
+                        
+                        if(myPlanets[i].Count[0] >= myPlanets[i].Switch){
+                            myPlanets[i].DownUp[1] = !myPlanets[i].DownUp[1];
+                            myPlanets[i].Count[0] = 0;
+                            if(i == 1){
+                                console.log("x invert");
+                            }
+                        }
+                        if(myPlanets[i].Count[1] >= myPlanets[i].Switch){
+                            myPlanets[i].DownUp[0] = !myPlanets[i].DownUp[0];
+                            myPlanets[i].Count[1] = 0;
+                            if(i == 1){
+                                console.log("y invert");
+                            }
                     }
+                    //gives it a new planet
+                    myPlanets[i].newPos(newX,newY);
                 }
-                if(myPlanets[i].Count[1] >= myPlanets[i].Switch){
-                    myPlanets[i].DownUp[0] = !myPlanets[i].DownUp[0];
-                    myPlanets[i].Count[1] = 0;
-                }
-                //gives it a new planet
-                myPlanets[i].newPos(newX,newY);
             }
         }
-        console.log(myPlanets[1].DownUp);
+        // console.log(myPlanets[1].DownUp);
         console.log(myPlanets[1].Move);
             //updates each planet
             for(let i = 0; i < myPlanets.length; i++){
@@ -281,12 +285,12 @@ if(false){
             this.Distance = nextDistand;
             this.Name = name;
             this.Image = image;
-            this.MoveDif = 0.01;//1/this.Distance;
+            this.MoveDif = 1/(this.Distance*2);
             this.DownUp = [true,false];
             this.Move = [0,1];
-            this.Count = [0,this.Distance];
-            this.Switch = this.Distance*2;
-            nextDistand += 60;    
+            this.Count = [0,this.Distance*2];
+            this.Switch = this.Distance*4;
+            nextDistand += 50;    
 
             //updates the position of the planet
             this.update = function() {
