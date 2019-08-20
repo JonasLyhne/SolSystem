@@ -1,0 +1,58 @@
+
+body {
+    background-color: #fff;
+}
+
+
+.AnswerButContainer {
+    background-color: red;
+    height: 40%;
+    width: 40%;
+    overflow: hidden;
+    margin: 1% 1%;
+    padding: 1% 1%;
+}
+.AnswerButContainer:text{
+    text-align: center;
+}
+
+
+
+.questtext {
+    resize: none;
+    overflow: hidden;
+    background-color: pink;
+
+    
+}
+
+.answerbutton {
+    padding: 15px 25px;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #a6c926;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+    
+
+}
+
+.answerbutton:hover {
+    background-color: #3e8e41
+}
+
+.answerbutton:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.answerbutton:text {
+    font-family: "Arial Rounded MT Bold";
+
+
+}
