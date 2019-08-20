@@ -68,16 +68,39 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\Bootstrap\bootstrap-grid.css" />
+    <Content Include="css\Bootstrap\bootstrap-grid.min.css" />
+    <Content Include="css\Bootstrap\bootstrap-reboot.css" />
+    <Content Include="css\Bootstrap\bootstrap-reboot.min.css" />
+    <Content Include="css\Bootstrap\bootstrap.css" />
+    <Content Include="css\Bootstrap\bootstrap.min.css" />
     <Content Include="css\Layout.css" />
     <Content Include="css\Planets.css" />
+    <Content Include="css\Questions.css" />
     <Content Include="Index.html" />
+    <Content Include="JavaScript\Bootstrap\bootstrap.bundle.js" />
+    <Content Include="JavaScript\Bootstrap\bootstrap.bundle.min.js" />
+    <Content Include="JavaScript\Bootstrap\bootstrap.js" />
+    <Content Include="JavaScript\Bootstrap\bootstrap.min.js" />
+    <Content Include="JavaScript\jquery-3.4.1.js" />
     <Content Include="JavaScript\Planets.js" />
+    <Content Include="question.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="JavaScript\Bootstrap\bootstrap.bundle.js.map" />
+    <Content Include="JavaScript\Bootstrap\bootstrap.bundle.min.js.map" />
+    <Content Include="JavaScript\Bootstrap\bootstrap.js.map" />
+    <Content Include="JavaScript\Bootstrap\bootstrap.min.js.map" />
+    <Content Include="css\Bootstrap\bootstrap-grid.css.map" />
+    <Content Include="css\Bootstrap\bootstrap-grid.min.css.map" />
+    <Content Include="css\Bootstrap\bootstrap-reboot.css.map" />
+    <Content Include="css\Bootstrap\bootstrap-reboot.min.css.map" />
+    <Content Include="css\Bootstrap\bootstrap.css.map" />
+    <Content Include="css\Bootstrap\bootstrap.min.css.map" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
