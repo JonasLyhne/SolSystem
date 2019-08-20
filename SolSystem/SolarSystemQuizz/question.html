@@ -1,0 +1,180 @@
+﻿<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Solsystem</title>
+
+
+    <link rel="stylesheet" href="css/Questions.css" />
+
+    <script src="JavaScript/jquery-3.4.1.js"></script>
+    <script src="JavaScript/Bootstrap/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/Bootstrap/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta charset="UTF-8">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div id="AnswerButContainer" class="col-lg-4">
+                <div class="row">
+                    <div class="col-md-12 ">
+                        <div class="card mb-12 mb-lg-0">
+                            <div class="card-body">
+                                <h5 class="card-title text-muted text-uppercase text-center">Spørgsmål:</h5>
+                                <div id="imageChanger">
+                                    <textarea id="QuestionCon" readonly rows="8" cols="50"
+                                        class="questtext text-center md-textarea form-control ">Månen er meget stor og lavet af ost
+                                </textarea>
+                                </div>
+
+                                <hr>
+
+                                <a href="#" class="btn btn-block btn-primary text-uppercase">Button</a>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="AnswerButContainer" class="col-md-6 rounded">
+
+
+                <div class="container">
+                    <div class="row">
+                        <div id="Answera" class="col-md-6 ">
+                            <div class="card mb-4 mb-lg-0">
+                                <div class="card-body">
+                                    <h5 class="card-title text-muted text-uppercase text-center">A</h5>
+                                    <textarea readonly rows="5" cols="20"
+                                        class="questtext text-center md-textarea form-control ">Månen er meget stor og lavet af ost
+                                        </textarea>
+                                    <hr>
+
+                                    <a href="#" class="btn btn-block btn-primary text-uppercase">Button</a>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div id="Answerb" class="col-md-6 ">
+                            <div class="card mb-4 mb-lg-0">
+                                <div class="card-body">
+                                    <h5 class="card-title text-muted text-uppercase text-center">B</h5>
+                                    <textarea readonly rows="5" cols="20"
+                                        class="questtext text-center md-textarea form-control ">
+                                        </textarea>
+                                    <hr>
+
+                                    <a href="#" class="btn btn-block btn-primary text-uppercase">Button</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div id="Answerc" class="col-md-6 ">
+                            <div class="card mb-4 mb-lg-0">
+                                <div class="card-body">
+                                    <h5 class="card-title text-muted text-uppercase text-center">C</h5>
+                                    <textarea readonly rows="5" cols="20"
+                                        class="questtext text-center md-textarea form-control ">i got the plug on wahaka, they are gonna find you like baka... wakka wakka
+                                        </textarea>
+                                    <hr>
+
+                                    <a href="#" class="btn btn-block btn-primary text-uppercase">Button</a>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div id="Answerd" class="col-md-6 ">
+                            <div class="card mb-4 mb-lg-0">
+                                <div class="card-body">
+                                    <h5 class="card-title text-muted text-uppercase text-center">D</h5>
+                                    <textarea readonly rows="5" cols="20"
+                                        class="questtext text-center md-textarea form-control ">i got the plug on wahaka
+                                        </textarea>
+                                    <hr>
+
+                                    <a href="#" class="btn btn-block btn-primary text-uppercase">Button</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script>
+        function hideAnswers() {
+            document.getElementById("Answerd").style.display = "none";
+            document.getElementById("Answerc").style.display = "none";
+
+        }
+    </script>
+    <script>
+        function showAnswers() {
+            document.getElementById("Answerd").style.display = "block";
+            document.getElementById("Answerc").style.display = "block";
+
+        }
+    </script>
+                 <script>
+                    function toggleImage() {
+                        var img = document.createElement("img");
+                        img.src = "http://www.google.com/intl/en_com/images/logo_plain.png";
+                        var tbox = document.getElementById("QuestionCon");
+                        if(tbox.style.display = "block"){}
+
+                    }
+                </script>
+
+    <!-- <script>
+                    function myFunction() {
+
+
+                        var img = document.createElement("img");
+                        img.src = "http://www.google.com/intl/en_com/images/logo_plain.png";
+                        var tbox = document.getElementById("QuestionCon");
+
+                        if (tbox.style.display === "none") {
+                            tbox.style.display = "block";
+                            var src = document.getElementById("imageChanger");
+                            src.appendChild(img);
+                        } else {
+                            tbox.style.display = "none";
+                            src.hidden(img);
+                        }
+
+                    }
+                    if (document.getElementById("MyId").className == "hide")
+                        document.getElementById("MyId").className = "show";
+                    else
+                        document.getElementById("MyId").className = "hide";
+                </script> -->
+
+
+
+    <button onclick="hideAnswers()">Click Me</button>
+    <button onclick="showAnswers()">Click Me2</button>
+    <button onclick="toggleImage()">Click Me3</button>
+
+
+
+
+
+</body>
+
+</html>
