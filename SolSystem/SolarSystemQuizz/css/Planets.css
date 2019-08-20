@@ -1,14 +1,21 @@
 ﻿body{
+    background-color: black;
     background-image: url(https://media.istockphoto.com/videos/flying-through-stars-and-nebula-video-id475338912?s=640x640);
     background-size: cover;
 }
 
+.backGround {
+    position: absolute;
+    z-index: 1;
+}
+
 .planet{
     background-size: cover;
-    width: 50px;
     height: 50px;
+    width: 50px;
     cursor: help;
     position: absolute;
+    z-index: 10;
 }
 
 #changeStyle{
@@ -22,10 +29,11 @@
 
 .fill{
     background-color: transparent;
-    width: 65%;
-    height: 100%;
+    width: 64%;
+    height: 97%;
     margin-left: 35%;
     position: absolute;
+    z-index: 100;
 }
 
 .container{
@@ -35,6 +43,7 @@
     margin-right: 65%;
     margin-left: 0px;
     background-color: #222222bb;
+    z-index: 100;
 }
 
 .titlebox{
@@ -56,8 +65,4 @@
     padding-top: 1%;
     padding-bottom: 1%;
     border-bottom: 1px solid snow;
-}
-
-#Mars{
-    rotate: 180;
 }

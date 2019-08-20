@@ -68,7 +68,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="css\Layout.css" />
+    <Content Include="css\button.css" />
     <Content Include="css\Planets.css" />
     <Content Include="Index.html" />
     <Content Include="JavaScript\Planets.js" />

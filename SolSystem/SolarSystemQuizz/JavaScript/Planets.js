@@ -2,10 +2,41 @@
 //a array of the planets
 var myPlanets;
 
+let real = false;
 //the screen size
 let screenWidth = window.innerWidth;
 let screenHeight = window.innerHeight;
-if(false){
+
+function switchReal() {
+    setCookie("showReal", "test", 30);
+    console.log(getCookie("showReal"));
+    console.log("ran");
+}
+
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = "expires=" + d.toGMTString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+if(real){
 
     function startPlanets() {
         //planets with faces
@@ -48,8 +79,15 @@ if(false){
     
 
     var myArea = {
+            canvas: document.createElement("canvas"),
             start : function() {
                 this.interval = setInterval(updateArea,30); 
+                this.canvas.width = screenWidth-50;
+                this.canvas.height = screenHeight - 20;
+                this.canvas.className = "backGround";
+                this.context = this.canvas.getContext("2d");
+
+                document.body.insertBefore(this.canvas, document.body.childNodes[0]);
                 for(let i = 0; i < myPlanets.length; i++){
                     DrawPlanet(myPlanets[i]);
                 }
@@ -134,7 +172,10 @@ if(false){
         this.update = function() {
             let div = document.getElementById(this.Name);
             div.style.marginLeft = this.X-25  + "px";
-            div.style.marginTop = this.Y-25  + "px";
+            div.style.marginTop = this.Y - 25 + "px";
+            let ctx = myArea.context;
+            ctx.fillStyle = "pink";
+            ctx.fillRect(this.X, this.Y, 2, 2);
         }
             
         //gives it a new location
@@ -143,11 +184,9 @@ if(false){
             this.speed[1] += movey;
             if(this.speed[0] > screenWidth+400 || this.speed[0] < -400){
                 this.speed[0] = this.speed[0]*-1;
-                console.log("!x");
             }
             if(this.speed[1] > screenHeight+400 || this.speed[1] < -400){
                 this.speed[1] = this.speed[1]*-1;
-                console.log("!y");
             }
             this.X += this.speed[0];    
             this.Y += this.speed[1];
@@ -176,6 +215,18 @@ if(false){
         let g = 6.67 * Math.pow(10,-11);
         return Math.sqrt(g*mass/radius);
     }
+
+    //draws the planets 
+    function DrawPlanet(planet) {
+        let div = document.createElement("div");
+        div.style.backgroundImage = "url(" + planet.Image + ")";
+        div.style.marginLeft = planet.X - 25 + "px";
+        div.style.marginTop = planet.Y - 25 + "px";
+        div.className += "planet";
+        div.onclick = function () { showInfo(planet) };
+        div.id = planet.Name;
+        document.body.insertBefore(div, document.body.childNodes[0]);
+    }
 }else{
     let nextDistand = 0;
     function startPlanets() {
@@ -195,23 +246,33 @@ if(false){
             
             //normal real planets
             myPlanets = [
-                new Planet("sun","https://vignette.wikia.nocookie.net/thesolarsystem6361/images/5/59/Sun_spacepedia.png/revision/latest?cb=20180301152819"),
-                new Planet("merkur","https://image.jimcdn.com/app/cms/image/transf/dimension=169x1024:format=gif/path/s4d4073e514a7f469/image/ifb6718c1fb2f3bc1/version/1544192175/image.gif"),
-                new Planet("venus","https://i.pinimg.com/originals/6f/8c/da/6f8cda99bb66d88fd6d666fb025a0817.gif"),
-                new Planet("Jorden","https://acegif.com/wp-content/uploads/Earth.gif"),
-                new Planet("Mars","https://media.giphy.com/media/JRZwMhzk7WolG/giphy.gif"),
-                new Planet("jupiter","https://i.pinimg.com/originals/18/65/39/186539daa969fe74a48c2f78c681b02d.gif"),
-                new Planet("saturn","https://i.pinimg.com/originals/7b/bf/dc/7bbfdc15f72495dd5669007d168e95e0.gif"),
-                new Planet("Uranus","http://exchangedownloads.smarttech.com/public/content/d5/d5cbaedf-360e-4ef1-8180-a0328ba80489/previews/small/0001.png"),
-                new Planet("Neptune","https://images.squarespace-cdn.com/content/v1/56a1a14b05caa7ee9f26f47d/1462450014420-7CF9LSAC2OBE37GVXQW1/ke17ZwdGBToddI8pDm48kCMWMBFcqQftRz-JqZZoIB5Zw-zPPgdn4jUwVcJE1ZvWEtT5uBSRWt4vQZAgTJucoTqqXjS3CfNDSuuf31e0tVH2l0Tw4P8eYMyOThp8q3kXICUSf-wwgstY-AWGRMkyhjqWIIaSPh2v08GbKqpiV54/image-asset.gif"),
-                new Planet("Pluto","https://img.webme.com/pic/u/ufovisitors/TethysRadar.gif"),
+                new Planet("sun",70,"https://vignette.wikia.nocookie.net/thesolarsystem6361/images/5/59/Sun_spacepedia.png/revision/latest?cb=20180301152819"),
+                new Planet("merkur",40,"https://image.jimcdn.com/app/cms/image/transf/dimension=169x1024:format=gif/path/s4d4073e514a7f469/image/ifb6718c1fb2f3bc1/version/1544192175/image.gif"),
+                new Planet("venus",49,"https://i.pinimg.com/originals/6f/8c/da/6f8cda99bb66d88fd6d666fb025a0817.gif"),
+                new Planet("Jorden",50,"https://acegif.com/wp-content/uploads/Earth.gif"),
+                new Planet("Mars",40,"https://i.pinimg.com/originals/2f/79/00/2f7900381868b32d000ac5307c13dba4.gif"),
+                new Planet("jupiter",65,"https://i.pinimg.com/originals/18/65/39/186539daa969fe74a48c2f78c681b02d.gif"),
+                new Planet("saturn",60,"https://i.pinimg.com/originals/7b/bf/dc/7bbfdc15f72495dd5669007d168e95e0.gif"),
+                new Planet("Uranus",50,"http://exchangedownloads.smarttech.com/public/content/d5/d5cbaedf-360e-4ef1-8180-a0328ba80489/previews/small/0001.png"),
+                new Planet("Neptune",60,"https://images.squarespace-cdn.com/content/v1/56a1a14b05caa7ee9f26f47d/1462450014420-7CF9LSAC2OBE37GVXQW1/ke17ZwdGBToddI8pDm48kCMWMBFcqQftRz-JqZZoIB5Zw-zPPgdn4jUwVcJE1ZvWEtT5uBSRWt4vQZAgTJucoTqqXjS3CfNDSuuf31e0tVH2l0Tw4P8eYMyOThp8q3kXICUSf-wwgstY-AWGRMkyhjqWIIaSPh2v08GbKqpiV54/image-asset.gif"),
+                new Planet("Pluto",30,"https://img.webme.com/pic/u/ufovisitors/TethysRadar.gif"),
         ];
         myArea.start();
     }
 
     var myArea = {
+
+        canvas: document.createElement("canvas"),
         start : function() {
-            this.interval = setInterval(updateArea,10); 
+            this.interval = setInterval(updateArea, 10); 
+
+            this.canvas.width = screenWidth-50;
+            this.canvas.height = screenHeight - 20;
+            this.canvas.className = "backGround";
+            this.context = this.canvas.getContext("2d");
+
+            document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+
             for(let i = 0; i < myPlanets.length; i++){
                 DrawPlanet(myPlanets[i]);
             }
@@ -254,24 +315,16 @@ if(false){
                         if(myPlanets[i].Count[0] >= myPlanets[i].Switch){
                             myPlanets[i].DownUp[1] = !myPlanets[i].DownUp[1];
                             myPlanets[i].Count[0] = 0;
-                            if(i == 1){
-                                console.log("x invert");
-                            }
                         }
                         if(myPlanets[i].Count[1] >= myPlanets[i].Switch){
                             myPlanets[i].DownUp[0] = !myPlanets[i].DownUp[0];
                             myPlanets[i].Count[1] = 0;
-                            if(i == 1){
-                                console.log("y invert");
-                            }
                     }
                     //gives it a new planet
                     myPlanets[i].newPos(newX,newY);
                 }
             }
         }
-        // console.log(myPlanets[1].DownUp);
-        console.log(myPlanets[1].Move);
             //updates each planet
             for(let i = 0; i < myPlanets.length; i++){
                 myPlanets[i].update();        
@@ -279,10 +332,11 @@ if(false){
     }
 
         //makes a planet
-        function Planet(name, image){
+        function Planet(name,width, image){
             this.X = (screenWidth / 2)- nextDistand - 25;
             this.Y = (screenHeight/ 2) - 25;
             this.Distance = nextDistand;
+            this.Width = width;
             this.Name = name;
             this.Image = image;
             this.MoveDif = 1/(this.Distance*2);
@@ -290,13 +344,16 @@ if(false){
             this.Move = [0,1];
             this.Count = [0,this.Distance*2];
             this.Switch = this.Distance*4;
-            nextDistand += 50;    
+            nextDistand += 55;    
 
             //updates the position of the planet
             this.update = function() {
                 let div = document.getElementById(this.Name);
-                div.style.marginLeft = this.X-25  + "px";
-                div.style.marginTop = this.Y-25  + "px";
+                div.style.marginLeft = this.X - this.Width/2  + "px";
+                div.style.marginTop = this.Y - this.Width / 2 + "px";
+                let ctx = myArea.context;
+                ctx.fillStyle = "pink";
+                ctx.fillRect(this.X, this.Y, 2, 2);
             }
                 
             //gives it a new location
@@ -319,17 +376,20 @@ if(false){
         document.getElementById("info").hidden = true;
         document.getElementById("fill").hidden = true;
     }
+
+    //draws the planets 
+    function DrawPlanet(planet) {
+        let div = document.createElement("div");
+        div.style.backgroundImage = "url(" + planet.Image + ")";
+        div.style.marginLeft = planet.X - planet.Width / 2 + "px";
+        div.style.marginTop = planet.Y - planet.Width / 2 + "px";
+        div.style.width = planet.Width + "px";
+        div.style.height = planet.Width + "px";
+        div.className += "planet";
+        div.onclick = function () { showInfo(planet) };
+        div.id = planet.Name;
+        document.body.insertBefore(div, document.body.childNodes[0]);
+    }
     
 }
 
-    //draws the planets 
-    function DrawPlanet(planet){
-        let div = document.createElement("div");
-        div.style.backgroundImage = "url(" + planet.Image + ")";
-        div.style.marginLeft = planet.X-25 + "px";
-        div.style.marginTop = planet.Y-25 + "px";
-        div.className += "planet";
-        div.onclick = function(){showInfo(planet)};
-        div.id = planet.Name;
-        document.body.insertBefore(div,document.body.childNodes[0]);
-    }

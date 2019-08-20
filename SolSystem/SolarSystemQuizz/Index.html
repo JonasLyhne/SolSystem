@@ -4,12 +4,14 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>SolarSystem</title>
-        <link rel="stylesheet" href="css/Layout.css" />
         <link rel="stylesheet" href="css/Planets.css" />
+        <link rel="stylesheet" href="css/button.css" />
+        <script src="JavaScript/Planets.js"></script>
     </head>
     <body onload="startPlanets()">
-        <script src="JavaScript/Planets.js"></script>
-        <!--<div id="test" class="fill"></div>-->
+        <!-- Rounded switch -->
+        <button onclick="switchReal()" style="z-index:500;">button</button>
+
         <div id="info" class="container" hidden=true>
             <div class="titlebox">
                 <h1 id="planetName" class="title"></h1>
