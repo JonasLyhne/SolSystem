@@ -74,7 +74,7 @@
     <Content Include="css\Bootstrap\bootstrap-reboot.min.css" />
     <Content Include="css\Bootstrap\bootstrap.css" />
     <Content Include="css\Bootstrap\bootstrap.min.css" />
-    <Content Include="css\Layout.css" />
+    <Content Include="css\button.css" />
     <Content Include="css\Planets.css" />
     <Content Include="css\Questions.css" />
     <Content Include="Index.html" />
@@ -84,6 +84,7 @@
     <Content Include="JavaScript\Bootstrap\bootstrap.min.js" />
     <Content Include="JavaScript\jquery-3.4.1.js" />
     <Content Include="JavaScript\Planets.js" />
+    <Content Include="JavaScript\test.js" />
     <Content Include="question.html" />
     <Content Include="Web.config" />
   </ItemGroup>
