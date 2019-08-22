@@ -64,17 +64,17 @@ function getCookie(cname) {
             
             //normal real planets
             myPlanets = [
-                new Planet("sun","Sun",70,1,"https://vignette.wikia.nocookie.net/thesolarsystem6361/images/5/59/Sun_spacepedia.png/revision/latest?cb=20180301152819"),
-                new Planet("merkur","Planet",40,1,"https://image.jimcdn.com/app/cms/image/transf/dimension=169x1024:format=gif/path/s4d4073e514a7f469/image/ifb6718c1fb2f3bc1/version/1544192175/image.gif"),
-                new Planet("venus","Planet",49,1,"https://i.pinimg.com/originals/6f/8c/da/6f8cda99bb66d88fd6d666fb025a0817.gif"),
-                new Planet("Jorden","Planet",50,1,"https://acegif.com/wp-content/uploads/Earth.gif"),
-                new Moon("moon","Moon",20,2,"https://acegif.com/wp-content/uploads/Earth.gif"),
-                new Planet("Mars","Planet",40,1,"https://i.pinimg.com/originals/2f/79/00/2f7900381868b32d000ac5307c13dba4.gif"),
-                new Planet("jupiter","Planet",65,1,"https://i.pinimg.com/originals/18/65/39/186539daa969fe74a48c2f78c681b02d.gif"),
-                new Planet("saturn","Planet",60,1,"https://i.pinimg.com/originals/7b/bf/dc/7bbfdc15f72495dd5669007d168e95e0.gif"),
-                new Planet("Uranus","Planet",50,1,"http://exchangedownloads.smarttech.com/public/content/d5/d5cbaedf-360e-4ef1-8180-a0328ba80489/previews/small/0001.png"),
-                new Planet("Neptune","Planet",60,1,"https://images.squarespace-cdn.com/content/v1/56a1a14b05caa7ee9f26f47d/1462450014420-7CF9LSAC2OBE37GVXQW1/ke17ZwdGBToddI8pDm48kCMWMBFcqQftRz-JqZZoIB5Zw-zPPgdn4jUwVcJE1ZvWEtT5uBSRWt4vQZAgTJucoTqqXjS3CfNDSuuf31e0tVH2l0Tw4P8eYMyOThp8q3kXICUSf-wwgstY-AWGRMkyhjqWIIaSPh2v08GbKqpiV54/image-asset.gif"),
-                new Planet("Pluto","Planet",30,1,"https://img.webme.com/pic/u/ufovisitors/TethysRadar.gif"),
+                new Planet("sun","Sun",70,0,"https://vignette.wikia.nocookie.net/thesolarsystem6361/images/5/59/Sun_spacepedia.png/revision/latest?cb=20180301152819"),
+                new Planet("merkur","Planet",40,2,"https://image.jimcdn.com/app/cms/image/transf/dimension=169x1024:format=gif/path/s4d4073e514a7f469/image/ifb6718c1fb2f3bc1/version/1544192175/image.gif"),
+                new Planet("venus","Planet",49,0.30,"https://i.pinimg.com/originals/6f/8c/da/6f8cda99bb66d88fd6d666fb025a0817.gif"),
+                new Planet("Jorden","Planet",50,0.48,"https://acegif.com/wp-content/uploads/Earth.gif"),
+                new Moon("moon","Moon",20,1.44,"https://acegif.com/wp-content/uploads/Earth.gif"),
+                new Planet("Mars","Planet",40,0.26,"https://i.pinimg.com/originals/2f/79/00/2f7900381868b32d000ac5307c13dba4.gif"),
+                new Planet("jupiter","Planet",65,0.14,"https://i.pinimg.com/originals/18/65/39/186539daa969fe74a48c2f78c681b02d.gif"),
+                new Planet("saturn","Planet",60,0.12,"https://i.pinimg.com/originals/7b/bf/dc/7bbfdc15f72495dd5669007d168e95e0.gif"),
+                new Planet("Uranus","Planet",50,0.11,"http://exchangedownloads.smarttech.com/public/content/d5/d5cbaedf-360e-4ef1-8180-a0328ba80489/previews/small/0001.png"),
+                new Planet("Neptune","Planet",60,0.103,"https://images.squarespace-cdn.com/content/v1/56a1a14b05caa7ee9f26f47d/1462450014420-7CF9LSAC2OBE37GVXQW1/ke17ZwdGBToddI8pDm48kCMWMBFcqQftRz-JqZZoIB5Zw-zPPgdn4jUwVcJE1ZvWEtT5uBSRWt4vQZAgTJucoTqqXjS3CfNDSuuf31e0tVH2l0Tw4P8eYMyOThp8q3kXICUSf-wwgstY-AWGRMkyhjqWIIaSPh2v08GbKqpiV54/image-asset.gif"),
+                new Planet("Pluto","Planet",30,0.102,"https://img.webme.com/pic/u/ufovisitors/TethysRadar.gif"),
         ];
         myArea.start();
     }
@@ -111,8 +111,6 @@ function getCookie(cname) {
             //calculates the movement of each planet
             for(let i = 0; i < myPlanets.length; i++){
                 if(i != 0){
-                    for(let y = 0; y < myPlanets[i].Speed; y++){
-                        
                         let newX;
                         let newY;
                         newX = myPlanets[i].Distance * Math.cos(myPlanets[i].Angle*(Math.PI/180));
@@ -121,20 +119,20 @@ function getCookie(cname) {
                         if(myPlanets[i].Type == "Planet"){
                             newX += myPlanets[0].X;
                             newY += myPlanets[0].Y;
-                        }else if(myPlanets[i].Type = "Moon"){
+                        }else if(myPlanets[i].Type == "Moon"){
                             newX += myPlanets[i-1].X;
                             newY += myPlanets[i-1].Y;
                         }
-                        myPlanets[i].Angle++;
+                        myPlanets[i].Angle += myPlanets[i].Speed;
                         //gives it a new planet
                         myPlanets[i].newPos(newX,newY);
-                        if(myPlanets[i].Type = "Moon"){    
+                        if(myPlanets[i].Type == "Moon"){    
                             //updates the planet
                             myPlanets[i].update(newX,newY);        
                         }else{
                             myPlanets[i].update();
                         }
-                    }
+                        console.log(myPlanets[i].Distance);
                 }
             }
         }
@@ -143,6 +141,7 @@ function getCookie(cname) {
         function Planet(name,type, width, speed, image){
             this.Type = type;
             this.Angle = 0;
+            this.Speed = speed;
             this.X = (screenWidth / 4*2)- nextDistand - 25;
             this.Y = (screenHeight/ 2) - 25;
             this.Distance = nextDistand;
@@ -172,6 +171,7 @@ function getCookie(cname) {
         function Moon(name,type, width, speed, image){
             this.Type = type;
             this.Angle = 0;
+            this.Speed = speed;
             this.X = 0;
             this.Y = 0;
             this.Distance = 35;
