@@ -64,11 +64,11 @@ function getCookie(cname) {
             
             //normal real planets
             myPlanets = [
-                new Planet("sun","Sun",70,0,"https://vignette.wikia.nocookie.net/thesolarsystem6361/images/5/59/Sun_spacepedia.png/revision/latest?cb=20180301152819"),
+                new Planet("sun","Sun",70,0,"https://i.pinimg.com/originals/78/cf/9f/78cf9fa0e1591233e8a5d91322445057.gif"),
                 new Planet("merkur","Planet",40,2,"https://image.jimcdn.com/app/cms/image/transf/dimension=169x1024:format=gif/path/s4d4073e514a7f469/image/ifb6718c1fb2f3bc1/version/1544192175/image.gif"),
                 new Planet("venus","Planet",49,0.30,"https://i.pinimg.com/originals/6f/8c/da/6f8cda99bb66d88fd6d666fb025a0817.gif"),
                 new Planet("Jorden","Planet",50,0.48,"https://acegif.com/wp-content/uploads/Earth.gif"),
-                new Moon("moon","Moon",20,1.44,"https://acegif.com/wp-content/uploads/Earth.gif"),
+                new Moon("moon","Moon",20,6.44,"https://upload.wikimedia.org/wikipedia/commons/1/1a/Moon_rotating_full_220px.gif"),
                 new Planet("Mars","Planet",40,0.26,"https://i.pinimg.com/originals/2f/79/00/2f7900381868b32d000ac5307c13dba4.gif"),
                 new Planet("jupiter","Planet",65,0.14,"https://i.pinimg.com/originals/18/65/39/186539daa969fe74a48c2f78c681b02d.gif"),
                 new Planet("saturn","Planet",60,0.12,"https://i.pinimg.com/originals/7b/bf/dc/7bbfdc15f72495dd5669007d168e95e0.gif"),

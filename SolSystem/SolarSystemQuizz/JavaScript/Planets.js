@@ -2,7 +2,7 @@
 //a array of the planets
 var myPlanets;
 
-let real = false;
+let real = true;
 //the screen size
 let screenWidth = window.innerWidth;
 let screenHeight = window.innerHeight;
