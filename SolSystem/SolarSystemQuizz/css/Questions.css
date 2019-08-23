@@ -11,10 +11,13 @@ body {
     overflow: hidden;
     margin: 1% 1%;
     padding: 1% 1%;
-
+}
 
 
 .questtext {
     resize: none;
     overflow: hidden;
+}
+.imgfit{
+    object-fit: fill;
 }
