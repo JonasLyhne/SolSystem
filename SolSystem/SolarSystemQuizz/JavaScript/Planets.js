@@ -2,42 +2,48 @@
 //a array of the planets
 var myPlanets;
 
-let real = false;
+var realSpeed = 10;
+
+let real = true;
 //the screen size
 let screenWidth = window.innerWidth;
 let screenHeight = window.innerHeight;
 
-    function switchReal() {
-        setCookie("showReal", "test", 30);
-        console.log(getCookie("showReal"));
-        console.log("ran");
-    }
+    // function switchReal() {
+    //     setCookie("showReal", "test", 30);
+    //     console.log(getCookie("showReal"));
+    //     console.log("ran");
+    // }
 
-    function setCookie(cname, cvalue, exdays) {
-        var d = new Date();
-        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-        var expires = "expires=" + d.toGMTString();
-        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-    }
+    // function setCookie(cname, cvalue, exdays) {
+    //     var d = new Date();
+    //     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    //     var expires = "expires=" + d.toGMTString();
+    //     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    // }
 
-    function getCookie(cname) {
-        var name = cname + "=";
-        var decodedCookie = decodeURIComponent(document.cookie);
-        var ca = decodedCookie.split(';');
-        for (var i = 0; i < ca.length; i++) {
-            var c = ca[i];
-            while (c.charAt(0) == ' ') {
-                c = c.substring(1);
-            }
-            if (c.indexOf(name) == 0) {
-                return c.substring(name.length, c.length);
-            }
-        }
-        return "";
-    }
+    // function getCookie(cname) {
+    //     var name = cname + "=";
+    //     var decodedCookie = decodeURIComponent(document.cookie);
+    //     var ca = decodedCookie.split(';');
+    //     for (var i = 0; i < ca.length; i++) {
+    //         var c = ca[i];
+    //         while (c.charAt(0) == ' ') {
+    //             c = c.substring(1);
+    //         }
+    //         if (c.indexOf(name) == 0) {
+    //             return c.substring(name.length, c.length);
+    //         }
+    //     }
+    //     return "";
+    // }
 
 if (real) {
 
+    // 1 px = x km
+    let ratio = 10000000*2 / ((screenHeight+screenWidth)/2)
+    //downscaling
+    let scaling = 200;
     function startPlanets() {
         //planets with faces
         // myPlanets = [
@@ -55,23 +61,20 @@ if (real) {
             
             //normal real planets
             myPlanets = [
-                new Planet(1392000/10,1392000/10,1988430000000000000000000000000/scaling,0, "yellow","sun","https://vignette.wikia.nocookie.net/thesolarsystem6361/images/5/59/Sun_spacepedia.png/revision/latest?cb=20180301152819"),
-                new Planet(4879/10,4879/10,330200000000000000000000/scaling,57522077*2/scaling,"gray","merkur","https://image.jimcdn.com/app/cms/image/transf/dimension=169x1024:format=gif/path/s4d4073e514a7f469/image/ifb6718c1fb2f3bc1/version/1544192175/image.gif"),
-                new Planet(12104/10,12104/10,4868500000000000000000000/scaling,108208926*2/scaling,"red","venus","https://i.pinimg.com/originals/6f/8c/da/6f8cda99bb66d88fd6d666fb025a0817.gif"),
-                new Planet(12745.591/10,12745.591/10,5972230000000000000000000/scaling,149597887*2/scaling,"green","Earth","https://acegif.com/wp-content/uploads/Earth.gif"),
-                new Planet(6773/10,6773/10,641850000000000000000000/scaling,227936637*2/scaling,"red","Mars","https://media.giphy.com/media/JRZwMhzk7WolG/giphy.gif"),
-                new Planet(138346.5/10,138346.5/10,1899000000000000000000000000/scaling,778412027/scaling,"brown","jupiter","https://i.pinimg.com/originals/18/65/39/186539daa969fe74a48c2f78c681b02d.gif"),
-                new Planet(378675/10,378675/10,568460000000000000000000000/scaling,1426725413/scaling,"lightbrown","saturn","https://i.pinimg.com/originals/7b/bf/dc/7bbfdc15f72495dd5669007d168e95e0.gif"),
-                new Planet(50532/10,50532/10,86832000000000000000000000/scaling,2870972220/2.5/scaling,"lightblue","Uranus","http://exchangedownloads.smarttech.com/public/content/d5/d5cbaedf-360e-4ef1-8180-a0328ba80489/previews/small/0001.png"),
-                new Planet(49104.5/10,49104.5/10,102430000000000000000000000/scaling,4498252900/2.5/scaling,"blue","Neptune","https://images.squarespace-cdn.com/content/v1/56a1a14b05caa7ee9f26f47d/1462450014420-7CF9LSAC2OBE37GVXQW1/ke17ZwdGBToddI8pDm48kCMWMBFcqQftRz-JqZZoIB5Zw-zPPgdn4jUwVcJE1ZvWEtT5uBSRWt4vQZAgTJucoTqqXjS3CfNDSuuf31e0tVH2l0Tw4P8eYMyOThp8q3kXICUSf-wwgstY-AWGRMkyhjqWIIaSPh2v08GbKqpiV54/image-asset.gif"),
-                new Planet(2390/10,2390/10,12500000000000000000000/scaling,5906376272/2.5/scaling,"white","Pluto","https://img.webme.com/pic/u/ufovisitors/TethysRadar.gif"),
+
+                new Planet(1392000,1392000,1988430000000000000000000000000,0,274, "yellow","sun","./Pics/RealPlanet/Sun.gif"),
+                new Planet(4879,4879,330200000000000000000000,57910000,3.7,"gray","merkur","./Pics/RealPlanet/Merkur.gif"),
+                // new Planet(12104,12104,4868500000000000000000000,108208926,8.87,"red","venus","./Pics/RealPlanet/Venus.gif"),
+                // new Planet(12745.591,12745.591,5972230000000000000000000,149597887,9.798,"green","Jorden","./Pics/RealPlanet/Earth.gif"),
+                // new Planet(6773,6773,641850000000000000000000,227936637,3.71,"red","Mars","./Pics/RealPlanet/Mars.gif"),
+                // new Planet(138346.5,138346.5,1899000000000000000000000000,778412027,24.92,"brown","jupiter","./Pics/RealPlanet/Jupiter.gif"),
+                // new Planet(378675,378675,568460000000000000000000000,1426725413,10.44,"lightbrown","saturn","./Pics/RealPlanet/Saturn.gif"),
+                // new Planet(50532,50532,86832000000000000000000000,2870972220,8.87,"lightblue","Uranus","./Pics/RealPlanet/Uranus.gif"),
+                // new Planet(49104.5,49104.5,102430000000000000000000000,4498252900,11.15,"blue","Neptune","./Pics/RealPlanet/Neptune.gif"),
+                // new Planet(2390,2390,12500000000000000000000,5906376272,0.58,"white","Pluto","./Pics/RealPlanet/Pluto.gif"),
         ];
         myArea.start();
     }
-    // 1 px = x km
-    let ratio = 10000000*2 / ((screenHeight+screenWidth)/2)
-    //downscaling
-    let scaling = 200;
     
     
     // let exploding = "https://i.ya-webdesign.com/images/blast-vector-gif-animation.gif";
@@ -104,64 +107,79 @@ if (real) {
     //updates everything
     function updateArea() {
         myArea.clear();
-        //calcuates moves 10 times every time the image gets opdated
-        for(let x = 0; x < 10; x++){
-            
+        for(let c = 0; c < 100; c++){
+
             //calculates the movement of each planet
             for(let i = 0; i < myPlanets.length; i++){
                 let movex = 0;
                 let movey = 0;
-                //calculates the gravity 11 times
-                for(let c = 0; c < 11; c++){
-                    //calculates the gravity force for the planet and every other planet
-                    for(let y = 0; y < myPlanets.length; y++){
-                        if(y != i && i != 0){
-                            //calculates the gravity force/speed 
-                            let force = ForceToSpeed(
-                                gravityMove(
-                                    (
-                                        (distance(
-                                        myPlanets[i].X+(myPlanets[i].Width/2),
-                                        myPlanets[i].Y+(myPlanets[i].Height/2),
-                                        myPlanets[y].X+(myPlanets[y].Width/2),
-                                        myPlanets[y].Y+(myPlanets[y].Height/2)
-                                        ))*ratio*1000
+
+                if(i != 0){
+                //calculates the gravity force for the planet and every other planet
+                for(let y = 0; y < myPlanets.length; y++){
+                    if(y != i){
+
+                        //#region 
+                        
+                        //calculates the gravity force/speed 
+                        let force =
+                        gravityMove(
+                            (
+                                (distance(
+                                    myPlanets[i].X,
+                                    myPlanets[i].Y,
+                                    myPlanets[y].X,
+                                    myPlanets[y].Y
+                                    ))
                                     ),
-                                myPlanets[i].Mass,
-                                myPlanets[y].Mass
-                                ),
-                            myPlanets[i].Mass);
-                                        
-                            //applying the force/speed
-                            let defX =myPlanets[i].X+(myPlanets[i].Width/2*-1) - myPlanets[y].X+(myPlanets[y].Width/2*-1);
-                            let defY = myPlanets[i].Y+(myPlanets[i].Height/2*-1) - myPlanets[y].Y+(myPlanets[y].Height/2*-1);
-                            let speedPerPixel = (force/(Math.sqrt(defX*defX)+Math.sqrt(defY*defY)))*210/ratio;
-                            movex += (speedPerPixel*defX)*-1;
-                            movey += (speedPerPixel*defY)*-1;
+                                    myPlanets[y].Mass
+                                    )/1000*realSpeed;
+                                    
+                                    //#endregion
+                                    
+                                    //applying the force/speed
+                                    let lengthToX = (myPlanets[i].X+(myPlanets[i].Width/2*-1) - myPlanets[y].X+(myPlanets[y].Width/2))*-1;
+                                    let lengthToY = (myPlanets[i].Y+(myPlanets[i].Width/2*-1) - myPlanets[y].Y+(myPlanets[y].Width/2))*-1;
+                                    
+                                    let maxPixelDef = Math.sqrt(lengthToX**2)+Math.sqrt(lengthToY**2);
+                                    
+                                    let defX = lengthToX/maxPixelDef;
+                                    let defY = lengthToY/maxPixelDef;
+                                    
+                                    //let force = myPlanets[y].Gravity;
+                                    
+                                    movex += force*defX;
+                                    movey += force*defY;
+                                    console.log(force);
+                                }
+                                }
+                                //gives it a new planet
+                                myPlanets[i].newPos(movex, movey);
+                            }
+                    
                         }
-                    }
-                    //gives it a new planet
-                    myPlanets[i].newPos(movex, movey);
-                    //updates the planet
-                    myPlanets[i].update();
-                }
+            }
+            for(let i = 0; i < myPlanets.length; i++){
+                //updates the planet
+                myPlanets[i].update();
             }
         }
-    }
-    
+            
     //makes a planet
-    function Planet(width, height, mass,distanceFromcenter, color, name, image){
-        this.X = (screenWidth / 2)- (width/ratio/2) - (distanceFromcenter/ratio);
-        this.Y = (screenHeight/ 2) - (height/ratio/2);
-        this.Width = width/ratio;
-        this.Height = height/ratio;
+    function Planet(width, height, mass, distanceFromcenter, gravity, color, name, image){
+        this.Gravity = gravity;
+        this.X = (screenWidth / 2)- 5 - (distanceFromcenter);
+        this.Y = 0;
+        this.Width = width;
+        this.Height = height;
         this.Name = name;
         this.Image = image;
         this.Mass = mass;
         this.Color = color;
         //if it is in the center it dont gets a calculated speed
         if(distanceFromcenter > 0){
-            this.speed = [0,Velocity(1988430000000000000000000000000/scaling,distanceFromcenter)/1000/ratio];
+            this.speed = [0,Velocity(1988430000000000000000000000000,distanceFromcenter)/3600];
+            // this.speed = [0,48.03*realSpeed];
         }else{
             this.speed = [0,0];
         }
@@ -169,23 +187,23 @@ if (real) {
         //updates the position of the planet
         this.update = function() {
             let div = document.getElementById(this.Name);
-            div.style.marginTop = this.Y - 25 + "px";
-            div.style.marginTop = this.Y - 25 + "px";
-            // let ctx = myArea.context;
-            // ctx.fillStyle = "#ffddff22";
-            // ctx.fillRect(this.X, this.Y, 1, 1);
+            div.style.marginLeft = (screenWidth / 2) + (this.X/scaling)/ratio - 5 + "px";
+            div.style.marginTop = (screenHeight / 2) + (this.Y/scaling)/ratio - 5 + "px";
+            let ctx = myArea.context;
+            ctx.fillStyle = "#ffddff22";
+            ctx.fillRect((screenWidth / 2) + (this.X/scaling)/ratio, (screenHeight / 2) + (this.Y/scaling)/ratio, 1, 1);
         }
             
         //gives it a new location
         this.newPos = function(movex,movey) {
             this.speed[0] += movex; 
             this.speed[1] += movey;
-            if(this.speed[0] > screenWidth+400 || this.speed[0] < -400){
-                this.speed[0] = this.speed[0]*-1;
-            }
-            if(this.speed[1] > screenHeight+400 || this.speed[1] < -400){
-                this.speed[1] = this.speed[1]*-1;
-            }
+            // if(this.speed[0] > screenWidth+400 || this.speed[0] < -400){
+            //     this.speed[0] = this.speed[0]*-1;
+            // }
+            // if(this.speed[1] > screenHeight+400 || this.speed[1] < -400){
+            //     this.speed[1] = this.speed[1]*-1;
+            // }
             this.X += this.speed[0];    
             this.Y += this.speed[1];
         }
@@ -197,10 +215,9 @@ if (real) {
     }
 
         //calculates the gravity force between 2 planets
-    function gravityMove(distance,mass1,mass2){
-        let mass = mass1 * mass2;
+    function gravityMove(distance,Mass){
         let g = 6.67 * Math.pow(10,-11);
-        return (g*mass1*mass2/Math.pow(distance,2));
+        return (g*(Mass/Math.pow(distance*1000,2)));
     }
         
     //calculates the distance between two points
@@ -218,8 +235,8 @@ if (real) {
     function DrawPlanet(planet) {
         let div = document.createElement("div");
         div.style.backgroundImage = "url(" + planet.Image + ")";
-        div.style.marginLeft = planet.X - 25 + "px";
-        div.style.marginTop = planet.Y - 25 + "px";
+        div.style.marginLeft = planet.X - 5 + "px";
+        div.style.marginTop = planet.Y - 5 + "px";
         div.className += "planet";
         div.onclick = function () { showInfo(planet) };
         div.id = planet.Name;
