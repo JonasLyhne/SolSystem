@@ -44,7 +44,7 @@ if (real) {
             //     new Planet(1392000/10,1392000/10,1988430000000000000000000000000/scaling,0, "yellow","sun","https://solarsystem.nasa.gov/system/basic_html_elements/11561_Sun.png"),
             //     new Planet(4879/10,4879/10,330200000000000000000000/scaling,57522077*2/scaling,"gray","merkur","https://solarsystem.nasa.gov/system/basic_html_elements/x11732_mercury.png.pagespeed.ic.i4-Hz13_DV.png"),
             //     new Planet(12104/10,12104/10,4868500000000000000000000/scaling,108208926*2/scaling,"red","venus","https://solarsystem.nasa.gov/system/basic_html_elements/x11733_venus.png.pagespeed.ic.VkWiDYC7tL.png"),
-            //     new Planet(12745.591/10,12745.591/10,5972230000000000000000000/scaling,149597887*2/scaling,"green","Jorden","https://solarsystem.nasa.gov/system/basic_html_elements/x11734_earth.png.pagespeed.ic.3ZifaCkqgf.png"),
+            //     new Planet(12745.591/10,12745.591/10,5972230000000000000000000/scaling,149597887*2/scaling,"green","Earth","https://solarsystem.nasa.gov/system/basic_html_elements/x11734_earth.png.pagespeed.ic.3ZifaCkqgf.png"),
             //     new Planet(6773/10,6773/10,641850000000000000000000/scaling,227936637*2/scaling,"red","Mars","https://solarsystem.nasa.gov/system/basic_html_elements/x11735_mars.png.pagespeed.ic.ezyHkOsck8.png"),
             //     new Planet(138346.5/10,138346.5/10,1899000000000000000000000000/scaling,778412027/scaling,"lightbrown","jupiter","https://solarsystem.nasa.gov/system/basic_html_elements/x11736_jupiter.png.pagespeed.ic.pbG_7LL2ap.png"),
             //     new Planet(378675/10,378675/10,568460000000000000000000000/scaling,1426725413/1.3/scaling,"lightbrown","saturn","https://astronlogia.com/wp-content/uploads/2009/06/saturn-256x256.png"),
@@ -58,7 +58,7 @@ if (real) {
                 new Planet(1392000/10,1392000/10,1988430000000000000000000000000/scaling,0, "yellow","sun","https://vignette.wikia.nocookie.net/thesolarsystem6361/images/5/59/Sun_spacepedia.png/revision/latest?cb=20180301152819"),
                 new Planet(4879/10,4879/10,330200000000000000000000/scaling,57522077*2/scaling,"gray","merkur","https://image.jimcdn.com/app/cms/image/transf/dimension=169x1024:format=gif/path/s4d4073e514a7f469/image/ifb6718c1fb2f3bc1/version/1544192175/image.gif"),
                 new Planet(12104/10,12104/10,4868500000000000000000000/scaling,108208926*2/scaling,"red","venus","https://i.pinimg.com/originals/6f/8c/da/6f8cda99bb66d88fd6d666fb025a0817.gif"),
-                new Planet(12745.591/10,12745.591/10,5972230000000000000000000/scaling,149597887*2/scaling,"green","Jorden","https://acegif.com/wp-content/uploads/Earth.gif"),
+                new Planet(12745.591/10,12745.591/10,5972230000000000000000000/scaling,149597887*2/scaling,"green","Earth","https://acegif.com/wp-content/uploads/Earth.gif"),
                 new Planet(6773/10,6773/10,641850000000000000000000/scaling,227936637*2/scaling,"red","Mars","https://media.giphy.com/media/JRZwMhzk7WolG/giphy.gif"),
                 new Planet(138346.5/10,138346.5/10,1899000000000000000000000000/scaling,778412027/scaling,"brown","jupiter","https://i.pinimg.com/originals/18/65/39/186539daa969fe74a48c2f78c681b02d.gif"),
                 new Planet(378675/10,378675/10,568460000000000000000000000/scaling,1426725413/scaling,"lightbrown","saturn","https://i.pinimg.com/originals/7b/bf/dc/7bbfdc15f72495dd5669007d168e95e0.gif"),
@@ -230,32 +230,32 @@ if (real) {
     function startPlanets() {
         //planets with faces
         // myPlanets = [
-                // new Planet("sun",70,0,"https://solarsystem.nasa.gov/system/basic_html_elements/11561_Sun.png"),
-                // new Planet("merkur",40,3,"https://solarsystem.nasa.gov/system/basic_html_elements/x11732_mercury.png.pagespeed.ic.i4-Hz13_DV.png"),
-                // new Planet("venus",49,0.45,"https://solarsystem.nasa.gov/system/basic_html_elements/x11733_venus.png.pagespeed.ic.VkWiDYC7tL.png"),
-                // new Planet("Jorden",50,0.72,"https://solarsystem.nasa.gov/system/basic_html_elements/x11734_earth.png.pagespeed.ic.3ZifaCkqgf.png"),
-                // new Moon("moon","Moon",20,2.65,"https://cdn.pixabay.com/photo/2014/04/02/17/07/full-moon-308007_960_720.png"),
-                // new Planet("Mars",40,0.38,"https://solarsystem.nasa.gov/system/basic_html_elements/x11735_mars.png.pagespeed.ic.ezyHkOsck8.png"),
-                // new Planet("jupiter",65,0.06,"https://solarsystem.nasa.gov/system/basic_html_elements/x11736_jupiter.png.pagespeed.ic.pbG_7LL2ap.png"),
-                // new Planet("saturn",60,0.02,"https://astronlogia.com/wp-content/uploads/2009/06/saturn-256x256.png"),
-                // new Planet("Uranus",50,0.009,"https://numerologi-fyn.dk/images/uranus.png"),
-                // new Planet("Neptune",60,0.005,"https://solarsystem.nasa.gov/system/basic_html_elements/x11739_neptune.png.pagespeed.ic.QJUTj2bWVK.png"),
-                // new Planet("Pluto",30,0.003,"https://solarsystem.nasa.gov/system/basic_html_elements/11669_Pluto_lrg.png"),
-            // ];
+        //         new Planet("sun","Sun",70,0,"./Pics/ComicPlanet/Sun.png"),
+        //         new Planet("merkur","Planet",40,3,"./Pics/ComicPlanet/Merkur.png"),
+        //         new Planet("venus","Planet",49,0.45,"./Pics/ComicPlanet/Venus.png"),
+        //         new Planet("Earth","Planet",50,0.72,"./Pics/ComicPlanet/Earth.png"),
+        //         new Moon("moon","Moon",20,2.65,"./Pics/ComicPlanet/Moon.png"),
+        //         new Planet("Mars","Planet",40,0.38,"./Pics/ComicPlanet/Mars.png"),
+        //         new Planet("jupiter","Planet",65,0.06,"./Pics/ComicPlanet/Jupiter.png"),
+        //         new Planet("saturn","Planet",60,0.02,"./Pics/ComicPlanet/Saturn.png"),
+        //         new Planet("Uranus","Planet",50,0.009,"./Pics/ComicPlanet/Uranus.png"),
+        //         new Planet("Neptune","Planet",60,0.005,"./Pics/ComicPlanet/Neptune.png"),
+        //         new Planet("Pluto","Planet",30,0.003,"./Pics/ComicPlanet/Pluto.png"),
+        //     ];
             
             //normal real planets
             myPlanets = [
-                new Planet("sun","Sun",70,0,"https://i.pinimg.com/originals/78/cf/9f/78cf9fa0e1591233e8a5d91322445057.gif"),
-                new Planet("merkur","Planet",40,3,"https://image.jimcdn.com/app/cms/image/transf/dimension=169x1024:format=gif/path/s4d4073e514a7f469/image/ifb6718c1fb2f3bc1/version/1544192175/image.gif"),
-                new Planet("venus","Planet",49,0.45,"https://i.pinimg.com/originals/6f/8c/da/6f8cda99bb66d88fd6d666fb025a0817.gif"),
-                new Planet("Jorden","Planet",50,0.72,"https://acegif.com/wp-content/uploads/Earth.gif"),
-                new Moon("moon","Moon",20,2.65,"https://upload.wikimedia.org/wikipedia/commons/1/1a/Moon_rotating_full_220px.gif"),
-                new Planet("Mars","Planet",40,0.38,"https://i.pinimg.com/originals/2f/79/00/2f7900381868b32d000ac5307c13dba4.gif"),
-                new Planet("jupiter","Planet",65,0.06,"https://i.pinimg.com/originals/18/65/39/186539daa969fe74a48c2f78c681b02d.gif"),
-                new Planet("saturn","Planet",60,0.02,"https://i.pinimg.com/originals/7b/bf/dc/7bbfdc15f72495dd5669007d168e95e0.gif"),
-                new Planet("Uranus","Planet",50,0.009,"http://exchangedownloads.smarttech.com/public/content/d5/d5cbaedf-360e-4ef1-8180-a0328ba80489/previews/small/0001.png"),
-                new Planet("Neptune","Planet",60,0.005,"https://images.squarespace-cdn.com/content/v1/56a1a14b05caa7ee9f26f47d/1462450014420-7CF9LSAC2OBE37GVXQW1/ke17ZwdGBToddI8pDm48kCMWMBFcqQftRz-JqZZoIB5Zw-zPPgdn4jUwVcJE1ZvWEtT5uBSRWt4vQZAgTJucoTqqXjS3CfNDSuuf31e0tVH2l0Tw4P8eYMyOThp8q3kXICUSf-wwgstY-AWGRMkyhjqWIIaSPh2v08GbKqpiV54/image-asset.gif"),
-                new Planet("Pluto","Planet",30,0.003,"https://img.webme.com/pic/u/ufovisitors/TethysRadar.gif"),
+                new Planet("sun","Sun",70,0,'./Pics/RealPlanet/Sun.gif'),
+                new Planet("merkur","Planet",40,3,"./Pics/RealPlanet/Merkur.gif"),
+                new Planet("venus","Planet",49,0.45,"./Pics/RealPlanet/Venus.gif"),
+                new Planet("Earth","Planet",50,0.72,"./Pics/RealPlanet/Earth.gif"),
+                new Moon("moon","Moon",20,2.65,"./Pics/RealPlanet/Moon.gif"),
+                new Planet("Mars","Planet",40,0.38,"/Pics/RealPlanet/Mars.gif"),
+                new Planet("jupiter","Planet",65,0.06,"./Pics/RealPlanet/Jupiter.gif"),
+                new Planet("saturn","Planet",60,0.02,"./Pics/RealPlanet/Saturn.gif"),
+                new Planet("Uranus","Planet",50,0.009,"./Pics/RealPlanet/Uranus.gif"),
+                new Planet("Neptune","Planet",60,0.005,"./Pics/RealPlanet/Neptune.gif"),
+                new Planet("Pluto","Planet",30,0.003,"./Pics/RealPlanet/Pluto.gif"),
         ];
         myArea.start();
     }
