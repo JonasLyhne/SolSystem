@@ -13,8 +13,8 @@
 
 .planet {
     background-size: cover;
-    height: 50px;
-    width: 50px;
+    height: 10px;
+    width: 10px;
     cursor: help;
     position: absolute;
     z-index: 10;
@@ -48,6 +48,15 @@
     border-right: 5px solid #111111bb;
     z-index: 100;
 }
+.container-1{
+    min-width: 5%;
+    height: 100%;
+    position: fixed;
+    margin-left: 0px;
+    background-color: #222222bb;
+    border-right: 5px solid #111111bb;
+    z-index: 100;
+}
 
 .titlebox{
     border-bottom: 1px solid snow;
@@ -55,11 +64,20 @@
 }
 
 .title{
+    margin-right: 10px;
     font-family: sans-serif;
     color: snow;
     text-align: center;
     text-indent: 10px;
     text-transform: uppercase;    
+}
+
+h2.title{
+    font-family: sans-serif;
+    color: snow;
+    text-align: center;
+    text-indent: 5%;
+    text-transform: capitalize;    
 }
 
 .image{
