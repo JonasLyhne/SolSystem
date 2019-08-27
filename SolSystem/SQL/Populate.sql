@@ -1,0 +1,1 @@
+INSERT INTO 'element' (Name,Mass,Diameter,MinTemp,MaxTemp,MeanTemp,RotationPerios) VALUES('Solen',198843000000000000000000000000)
