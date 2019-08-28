@@ -187,8 +187,8 @@ if (real) {
         //updates the position of the planet
         this.update = function() {
             let div = document.getElementById(this.Name);
-            div.style.marginLeft = (screenWidth / 2) + (this.X/scaling)/ratio - 5 + "px";
-            div.style.marginTop = (screenHeight / 2) + (this.Y/scaling)/ratio - 5 + "px";
+            div.style.marginLeft = (screenWidth / 2) + (this.X/scaling)/ratio - 15 + "px";
+            div.style.marginTop = (screenHeight / 2) + (this.Y/scaling)/ratio - 15 + "px";
             let ctx = myArea.context;
             ctx.fillStyle = "#ffddff22";
             ctx.fillRect((screenWidth / 2) + (this.X/scaling)/ratio, (screenHeight / 2) + (this.Y/scaling)/ratio, 1, 1);
@@ -235,8 +235,8 @@ if (real) {
     function DrawPlanet(planet) {
         let div = document.createElement("div");
         div.style.backgroundImage = "url(" + planet.Image + ")";
-        div.style.marginLeft = planet.X - 5 + "px";
-        div.style.marginTop = planet.Y - 5 + "px";
+        div.style.marginLeft = planet.X - 15 + "px";
+        div.style.marginTop = planet.Y - 15 + "px";
         div.className += "planet";
         div.onclick = function () { showInfo(planet) };
         div.id = planet.Name;
