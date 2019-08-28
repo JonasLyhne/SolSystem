@@ -30,7 +30,7 @@ CREATE TABLE Planet(
     ElementId           INT             NOT NULL,
     Star                INT             NOT NULL,
     NumberOfMoons       INT,
-    DistanceToSun       INT,
+    DistanceToSun       DECIMAL(32),
     PRIMARY KEY (ElementId),
     FOREIGN KEY (Star) REFERENCES Star(ElementId) 
         ON DELETE CASCADE 
