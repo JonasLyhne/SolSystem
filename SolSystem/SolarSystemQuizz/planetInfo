@@ -7,13 +7,20 @@ Masse: Solen indeholder 74%  af al masse, og 92% af alt rumfang i vores solsyste
 ringesystem: solen har et slags ringesystem, som ligger imellem Mars og Jupiter
 
 2-3
-Størrelse: Solens diameter er 1.392.000 Km. som er 1.300.000 gange større end Jordens.
+Størrelse: Solens diameter er 1.392.000 Km. 
 Masse: Solen vejer 1.988.430.000.000.000.000.000.000.000 tons. men taber 4.000.000 tons i sekundet.
 Ringsystem: Solen har et Asteroidebælte, som ligger imellem Mars og Jupiter.
 Temperature: Solen har en Temperature ved overfladen på 5.507°C
 Dag: Solen drejer rundt om sig selv, det tager 27dage og 6timer for at dreje en gang rundt.
 
 4-5
+Diameter: 1.392.000 Km.
+Masse: 1.988.430.000.000.000.000.000.000.000 tons.
+Ringsystem: Solen har et Asteroidebælte, som ligger imellem Mars og Jupiter.
+Temperature: overfladen på 5.507°C
+TyndeKraft: 28g.
+Dag: Solen drejer rundt om sig selv, det tager 27dage og 6timer for at dreje en gang rundt.
+
 
 --------------------------------
 Merkur
@@ -32,6 +39,13 @@ Temperature: merkur har ingen måde at holde temperaturen så når der ikke er n
 Dag: En dag(soldag) på Merkur er 176 dage på Jorden.
 
 4-5
+Diameter: 4.879km.
+Masse: 330.200.000.000.000.000.000 tons.
+Afstand til Solen: 45.693.773km til 69.350.381km.
+Temperature: -183°C til 427°C.
+Dag: 176 dage.
+År: 87dage 23timer 11minutter.
+TyndeKraft: 0.38g.
 
 --------------------------------
 Venus
@@ -50,6 +64,13 @@ Temperature: venus har en måde at holde varmen inden, men stadig rammer -45°C,
 Dag:en dag(soldag) på Venus er 243 dage på Jorden.
 
 4-5
+Diameter: 12.104km.
+Masse: 4.868.500.000.000.000.000.000 tons.
+Afstand til Solen: 107.476.002km til 108.941.850km.
+Temperature: -45°C til 500°C.
+Dag: 243 dage.
+År: 1år 218dage 16timer 4minutter.
+TyndeKraft: 0.90g.
 
 --------------------------------
 Jorden
@@ -70,6 +91,14 @@ Måner: Jorden har kun en Måne.
 Dag: en dag er i gennemsnit 24 timer.
 
 4-5
+Diameter: (Ækvator) 12.756,27km, (Polerne) 12.713,5km.
+Masse: 5.972.230.000.000.000.000.000 tons
+Afstand til Solen: 147.098.073km til 152.097.701km.
+Temperature: -90°C til 57°C.
+Måner: 1.
+Dag: gennemsnit 24 timer
+År: 1år 10minutter.
+TyndeKraft: 1g.
 
 --------------------------------
 Månen
@@ -87,6 +116,11 @@ Afstand til Jorden: selv om det ser ud som om at Månen er tæt på, men den er 
 Temperature: Månen kommer helt ned på -233°C og op på 123°C.
 
 4-5
+Diameter: 3.475km.
+Masse: 73.490.000.000.000.000.000 tons.
+Afstand til Jorden: 363.300km til 405.500km.
+Temperature: -233°C til 123°C.
+omløbstid omkring Jorden: 27dage 7timer 43min.
 
 --------------------------------
 Mars
@@ -107,6 +141,14 @@ Måner: Mars har 2 Måner, men de meget små den stør af dem er kun 30km i diam
 Dag: en Dag på Mars er næsten lige så lang som en dag på Jorden. en dag er nemlig 24timer og 40 minutter.
 
 4-5
+Diameter: 6.792km.
+Masse: 641.850.000.000.000.000.000 tons.
+Afstand til Solen: 206.644.545km til 249.228.729km.
+Temperature: -140°C til 20°C.
+Måner: 2.
+Dag: 24timer 40 minutter.
+År: 1år 321dage 17timer 2minutter. 
+TyndeKraft: 0.38g
 
 --------------------------------
 Jupiter
@@ -116,18 +158,27 @@ dette er en planet
 størrelse: Jupiter er den største planet i vores solsystem. den er 1000 gange større end Jorden.
 afstand til solen: Jupiter er den femte planet fra solen. Dens afstand til solen er ca. 778 millioner km
 overflade: Jupiter er en gasplanet, og har derfor ingen fast overflade.
-måner/ringe: Jupiter har 72 kendte. Jupiter har også et system af ringe, men de kan være svære at se
+måner/ringe: Jupiter har 79 kendte. Jupiter har også et system af ringe, men de kan være svære at se
 
 2-3
 Størrelse: Jupiter er stor diameteren er 142.984km ved Ækvator, som er over 10 gange så stor som Jordens diameter.
 Masse: Jupiter vejer 1.899.000.000.000.000.000.000.000 tons, som er omkring 320 gange så meget som hvad Jorden vejer.
 Afstand til solen: Jupiter er på den anden side af solens Asteroidebælte. Jupiter er i gennemsnit 778.412.027km væk fra Solen.
 Temperature: den laveste Temperature Jupiter rammer er -163°C, og vi har ikke målet den højeste Temperature.
-Måner: Jupiter har mange Måner, den har hele 72 af dem, hvor 4 af dem har en diameter over 1.000km.
+Måner: Jupiter har mange Måner, den har hele 79 af dem, hvor 4 af dem har en diameter over 1.000km.
 Ringsystemer: Jupiter har et ringesystem, hvor den centrale ring er på cirka 7.000km i bredden, og er 20km tyk.
 Dag: Jupiter drejer virkelig hurtigt rundt et døgn tager kun lige under 10timer.
 
 4-5
+Diameter: (Ækvator) 142.984km, (Polerne) 133.709km.
+Masse: 1.899.000.000.000.000.000.000.000 tons.
+Afstand til Solen: 740.742.598km til 816.081.456km.
+Temperature: -163°C.
+Måner: 79.
+Ringsystem: Flere ganske tynde ringe af støv fra månerne.
+Dag: 9 timer 56minutter.
+År: 11år 317dage 14timer 30minutter
+TyndeKraft: 2.34g
 
 --------------------------------
 Saturn
@@ -149,6 +200,15 @@ Ringsystemer: Saturen har hele 7 ringe i sit ringsystem, men man ser ofte kun 2 
 Dag: Saturen er drejer hurtigt rundt, en dag tager kun 10 timer og 42 minutter.
 
 4-5
+Diameter: 120.536km
+Masse: 568.460.000.000.000.000.000.000 tons
+Afstand til Solen: 1.349.467.376km til 1.503.983.450km
+Temperature: -191°C
+Måner: 53 kendte måner og 9 måner som venter på at blive godkendt.
+Ringsystem: 7 ringe, men man ser ofte kun 2 af dem i et teleskop.
+Dag: 10 timer 42 minutter.
+År: 29år 165dage 11timer 40minutter 
+TyndeKraft: 1.16g
 
 --------------------------------
 Uranus
@@ -170,6 +230,15 @@ Ringsystemer: Uranus har hele 13 ringe men alle sammen er tynde og mørke.
 Dag: en dag på Uranus er 17 timer og 14 minutter.
 
 4-5
+Diameter: (Ækvator) 51.118km, (Polerne) 49.946km.
+Masse: 86.832.000.000.000.000.000.000 tons
+Afstand til Solen: 2.735.555.035km til 3.006.389.405km.
+Temperature: -214°C.
+Måner: 27.
+Ringsystem: 13 ringe men alle sammen er tynde og mørke.
+Dag: 17 timer og 14 minutter
+År: 84år 27dage 3timer 50minutter. 
+TyndeKraft: 1.15g
 
 --------------------------------
 Neptun
@@ -188,9 +257,18 @@ Afstand til solen: Neptun er 3 gange så langt væk som Saturen er, som bliver c
 Temperature: temperaturen på Neptun kommer ned på -223°C.
 Måner: den har 14 måner.
 Ringsystemer: Neptun har et ringsystem som er meget svagt, og mørkt der næsten ikke kan ses.
-Dag: 
+Dag: 16timer 6minutter
 
 4-5
+Diameter: (Ækvator) 49.528km, (Polerne) 48.681km.
+Masse: 102.430.000.000.000.000.000.000 tons.
+Afstand til Solen: 4.459.631.485km til 4.536.874.315km.
+Temperature: -223°C.
+Måner: 14.
+Ringsystem: et meget svagt, og mørkt.
+Dag: 16timer 6minutter.
+År: 164år 323dage 21timer 41minutter.
+TyndeKraft: 1.19g.
 
 --------------------------------
 Pluto
@@ -211,5 +289,13 @@ Måner: selvom den er lille har den 5 måner, og den største måne er halv så 
 Dag: en dag er ca. 6dage og 9timer på Jorden.
 
 4-5
+Diameter: 2.390km.
+Masse: 12.500.000.000.000.000.000 tons.
+Afstand til Solen: 4.436.824.613km til 7.375.927.931km.
+Temperature: -218°C til -240°C.
+Måner: 5.
+Dag: 6dage 9timer.
+År: 248år 31dage 7timer 20minutter.
+TyndeKraft: 0.04g.
 
 --------------------------------     
