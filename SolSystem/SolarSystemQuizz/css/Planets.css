@@ -58,6 +58,27 @@
     z-index: 100;
 }
 
+#planetlist{
+    padding: 0px;
+}
+
+.planetOption{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 50px;
+    width: 100%;
+    padding: 0px;
+    margin: auto;
+    margin-bottom: 5%;
+    margin-top: 5%;
+    align-content: center;
+}
+
+.planetOption:hover{
+    background-color: #222222bb;
+}
+
 .titlebox{
     border-bottom: 1px solid snow;
     margin-bottom: 1%;
