@@ -4,9 +4,6 @@ var myPlanets;
 var mySolarSystem;
 var GetSolarSystemUri = 'api/GetSolarSystem';
 
-var realSpeed = 30;
-
-let real = false;
 //the screen size
 let screenWidth = window.innerWidth;
 let screenHeight = window.innerHeight;
@@ -227,4 +224,3 @@ if (real) {
         div.id = planet.Name;
         document.body.insertBefore(div, document.body.childNodes[0]);
     }
-}
