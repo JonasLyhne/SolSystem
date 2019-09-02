@@ -44,9 +44,6 @@ console.log(mySolarSystem);
     //     return "";
     // }
 
-if (real) {
-
-}else{
     let nextDistand = 0;
     function startPlanets() {
         //planets with faces
