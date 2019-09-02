@@ -336,8 +336,8 @@ if (real) {
     function DrawPlanet(planet,x,y) {
         let div = document.createElement("div");
         div.style.backgroundImage = "url(" + planet.Image + ")";
-        div.style.marginLeft = x - 5 + "px";
-        div.style.marginTop = y - 5 + "px";
+        div.style.marginLeft = planet.X - 15 + "px";
+        div.style.marginTop = planet.Y - 15 + "px";
         div.className += "planet";
         div.id = planet.Name;
         document.body.insertBefore(div, document.body.childNodes[0]);

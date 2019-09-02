@@ -6,12 +6,13 @@ USE SolarSystem;
 CREATE TABLE Element(
     ID                  INT             NOT NULL    AUTO_INCREMENT,
     Name                Varchar(255),
-    Mass                INT,
+    Mass                DECIMAL(32),
     Diameter            INT,
     MinTemp             INT,
     MaxTemp             INT,
     MeanTemp            INT,
     RotationPeriod      Varchar(255),
+    RingSystem          BIT,
     PRIMARY KEY (ID)
 );
 
@@ -29,7 +30,7 @@ CREATE TABLE Planet(
     ElementId           INT             NOT NULL,
     Star                INT             NOT NULL,
     NumberOfMoons       INT,
-    DistanceToSun       INT,
+    DistanceToSun       DECIMAL(32),
     PRIMARY KEY (ElementId),
     FOREIGN KEY (Star) REFERENCES Star(ElementId) 
         ON DELETE CASCADE 
@@ -52,7 +53,7 @@ CREATE TABLE Moons(
         ON UPDATE CASCADE
 );
 
-CREATE TABLE PrbitingElement(
+CREATE TABLE OrbitingElement(
     ElementId           INT             NOT NULL,
     Revolution          Varchar(255),
     LengthOfDay         Varchar(255),
