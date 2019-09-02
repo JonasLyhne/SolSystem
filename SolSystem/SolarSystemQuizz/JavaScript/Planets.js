@@ -84,8 +84,8 @@ console.log(mySolarSystem);
         start : function() {
             this.interval = setInterval(updateArea, 50); 
 
-            this.canvas.width = screenWidth-50;
-            this.canvas.height = screenHeight - 20;
+            this.canvas.width = screenWidth;
+            this.canvas.height = screenHeight;
             this.canvas.className = "backGround";
             this.context = this.canvas.getContext("2d");
 

@@ -1,6 +1,29 @@
 body{
     margin: 0px;
 }
+
+.menuToggleOut{
+  float: right;
+  margin-top: 25%;
+  border: 0px;
+  font-size: 20px;
+  margin-right: 1%;
+  background-color: #00000000;
+  text-shadow: -1px 0 #cccccc, 0 1px #cccccc, 1px 0 #cccccc, 0 -1px #cccccc;
+  z-index: 1000;
+}
+.menuToggleIn{
+  float: right;
+  margin-top: 25%;
+  border: 0px;
+  font-size: 20px;
+  padding-right: 1%;
+  margin-right: 5%;
+  background-color: #00000000;
+  text-shadow: -1px 0 #cccccc, 0 1px #cccccc, 1px 0 #cccccc, 0 -1px #cccccc;
+  z-index: 1000;
+}
+
 .navbody{
     width: 5%;
     height: 100%;
@@ -11,12 +34,14 @@ body{
     background-image: linear-gradient(to right, #44444400, #444444);
     /* border-left: #555555 solid 5px; */
     align-content: center;
+    z-index: 999;
 }
 .navcontent{
     border-radius: 25px;
     font-family: "Times New Roman", Times, serif;
     background: #444444;
     border: #555555 solid 2px;
+    color: #cccccc;
     font-size: 15px;
     margin: 1%;
     margin-left: -15%;
@@ -25,53 +50,7 @@ body{
     text-align: center;
     display: inline-block;
 }
-
-.animation1{
-    -webkit-animation-name: Standing; /* Safari 4.0 - 8.0 */
-    -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
-    -webkit-animation-delay: 1s; /* Safari 4.0 - 8.0 */
-    -webkit-animation-iteration-count: infinite;
-    animation-name: Standing;
-    animation-duration: 4s;  
-    animation-delay: 1s;
-    animation-iteration-count: infinite;
-}
-
-.animation2{
-    -webkit-animation-name: Standing; /* Safari 4.0 - 8.0 */
-    -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
-    -webkit-animation-delay: 2s; /* Safari 4.0 - 8.0 */
-    -webkit-animation-iteration-count: infinite;
-    animation-name: Standing;
-    animation-duration: 4s;  
-    animation-delay: 2s;
-    animation-iteration-count: infinite;
-}
-
-.animation3{
-    -webkit-animation-name: Standing; /* Safari 4.0 - 8.0 */
-    -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
-    -webkit-animation-delay: 3s; /* Safari 4.0 - 8.0 */
-    -webkit-animation-iteration-count: infinite;
-    animation-name: Standing;
-    animation-duration: 4s;  
-    animation-delay: 3s;
-    animation-iteration-count: infinite;
-}
-
-.animation4{
-    -webkit-animation-name: Standing; /* Safari 4.0 - 8.0 */
-    -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
-    -webkit-animation-delay: 4s; /* Safari 4.0 - 8.0 */
-    -webkit-animation-iteration-count: infinite;
-    animation-name: Standing;
-    animation-duration: 4s;  
-    animation-delay: 4s;
-    animation-iteration-count: infinite;
-}
-
 .navcontent:link, .navcontent:visited {
-    background-color: #3355ff;
     text-decoration: none;
     display: inline-block;
   }
@@ -80,14 +59,17 @@ body{
     padding-left: 5%;
     font-size: 20px;
     margin-left: -25%;
-    background-image: linear-gradient(-90deg, #44444400, #777777);
+    width: auto;
+    max-width: 150%;
+    min-width: 100%;
+    background-image: linear-gradient(-90deg, #44444400, #555555);
     /* background-image: linear-gradient(to right, #1133dd , #3355ff); */
-    -webkit-animation-name: Standing; /* Safari 4.0 - 8.0 */
-    -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
-    -webkit-animation-iteration-count: infinite;
+    /*-webkit-animation-name: Standing; /* Safari 4.0 - 8.0 */
+    /*-webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+    /* -webkit-animation-iteration-count: infinite;
     animation-name: Standing;
     animation-duration: 4s;  
-    animation-iteration-count: infinite;
+    animation-iteration-count: infinite; */
 }
 
 /* hover animation */
