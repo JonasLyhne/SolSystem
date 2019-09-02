@@ -2,6 +2,16 @@
 //a array of the planets
 var myPlanets;
 
+var speed12 = false;
+var speedextra = [0,0];
+var countsafty = 0;
+var newPlanetMade;
+var newPlanet;
+var time1;
+var time2;
+//a array of the option 
+var planetOptions;
+
 var realSpeed = 30;
 
 let real = true;
@@ -43,7 +53,7 @@ if (real) {
     // 1 px = x km
     let ratio = 10000000*2 / ((screenHeight+screenWidth)/2)
     //downscaling
-    let scaling = 400;
+    let scaling = 200;
     function startPlanets() {
         //planets with faces
         // myPlanets = [
@@ -60,38 +70,130 @@ if (real) {
             // ];
             
             //normal real planets
-            myPlanets = [
+            planetOptions = [
 
-                new Planet(1392000,1392000,1988430000000000000000000000000,0,274, "yellow","sun","./Pics/RealPlanet/Sun.gif"),
-                new Planet(4879,4879,330200000000000000000000,57910000,3.7,"gray","merkur","./Pics/RealPlanet/Merkur.gif"),
-                new Planet(12104,12104,4868500000000000000000000,108208926,8.87,"red","venus","./Pics/RealPlanet/Venus.gif"),
-                new Planet(12745.591,12745.591,5972230000000000000000000,149597887,9.798,"green","Jorden","./Pics/RealPlanet/Earth.gif"),
-                new Planet(6773,6773,641850000000000000000000,227936637,3.71,"red","Mars","./Pics/RealPlanet/Mars.gif"),
-                new Planet(138346.5,138346.5,1899000000000000000000000000,778412027,24.92,"brown","jupiter","./Pics/RealPlanet/Jupiter.gif"),
-                new Planet(378675,378675,568460000000000000000000000,1426725413,10.44,"lightbrown","saturn","./Pics/RealPlanet/Saturn.gif"),
-                new Planet(50532,50532,86832000000000000000000000,2870972220,8.87,"lightblue","Uranus","./Pics/RealPlanet/Uranus.gif"),
-                new Planet(49104.5,49104.5,102430000000000000000000000,4498252900,11.15,"blue","Neptune","./Pics/RealPlanet/Neptune.gif"),
-                new Planet(2390,2390,12500000000000000000000,5906376272,0.58,"white","Pluto","./Pics/RealPlanet/Pluto.gif"),
+                new Planet(1392000,1392000,1988430000000000000000000000000,0,0,274, "yellow","sun","./Pics/RealPlanet/Sun.gif"),
+                new Planet(4879,4879,330200000000000000000000,0,0,3.7,"gray","merkur","./Pics/RealPlanet/Merkur.gif"),
+                new Planet(12104,12104,4868500000000000000000000,0,0,8.87,"red","venus","./Pics/RealPlanet/Venus.gif"),
+                new Planet(12745.591,12745.591,5972230000000000000000000,0,0,9.798,"green","Jorden","./Pics/RealPlanet/Earth.gif"),
+                new Planet(6773,6773,641850000000000000000000,0,0,3.71,"red","Mars","./Pics/RealPlanet/Mars.gif"),
+                new Planet(138346.5,138346.5,1899000000000000000000000000,0,0,24.92,"brown","jupiter","./Pics/RealPlanet/Jupiter.gif"),
+                new Planet(378675,378675,568460000000000000000000000,0,0,10.44,"lightbrown","saturn","./Pics/RealPlanet/Saturn.gif"),
+                new Planet(50532,50532,86832000000000000000000000,0,0,8.87,"lightblue","Uranus","./Pics/RealPlanet/Uranus.gif"),
+                new Planet(49104.5,49104.5,102430000000000000000000000,0,0,11.15,"blue","Neptune","./Pics/RealPlanet/Neptune.gif"),
+                new Planet(2390,2390,12500000000000000000000,0,0,0.58,"white","Pluto","./Pics/RealPlanet/Pluto.gif"),
         ];
+        document.onmouseup = function () { mouseUp() };
+        document.ontouchend = function () { mouseUp() };
+        myPlanets = [];
+        for(let i = 0; i < planetOptions.length; i++){
+            
+            showOptions(planetOptions[i]);
+        }
         myArea.start();
     }
     
+    function showOptions (planet){
+        let ol = document.createElement("ol");
+        ol.style.backgroundImage = "url(" + planet.Image + ")";
+        ol.className += "planetOption";
+        ol.id = planet.Name + "templade";
+        ol.onmousedown = function () { click(planet) };
+        ol.ontouchstart = function () { click(planet) };
+        document.getElementById("planetlist").appendChild(ol);
+    }
     
-    // let exploding = "https://i.ya-webdesign.com/images/blast-vector-gif-animation.gif";
-    // let hightechexpling = "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/8987f0cc-f0bd-4b74-9739-8ec82a79e15f/ddburtb-5d7f1385-bb9b-4a0e-a51a-5c460cf5f56c.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzg5ODdmMGNjLWYwYmQtNGI3NC05NzM5LThlYzgyYTc5ZTE1ZlwvZGRidXJ0Yi01ZDdmMTM4NS1iYjliLTRhMGUtYTUxYS01YzQ2MGNmNWY1NmMuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.pXsclxv3-pJX7gS5CkHW_JWr8arPsyM6bRdOeObojto";
-    
+    function addNewPlanet(){
+        let array = myPlanets;
+        myPlanets = new Array(array.length+1);
+        for(let i = 0; i < array.length; i++){
+            myPlanets[i] = array[i];
+        }
+        let difx;
+        let dify;
+        if(!speed12){
+            difx = newPlanet.speed[0] - speedextra[0];
+            dify = newPlanet.speed[1] - speedextra[1];
+        }else{
+            difx = speedextra[0] - newPlanet.speed[0];
+            dify = speedextra[1] - newPlanet.speed[1];
+        }
+        let total = Math.sqrt((difx)**2) + Math.sqrt((dify)**2);
+        let dif = [difx/total,dify/total];
 
+            if(speed12){
+                let time = time1 - time2;
+                newPlanet.speed[0] =((1000/(time*-1))*scaling*ratio/10)*dif[0];
+                newPlanet.speed[1] =((1000/(time*-1))*scaling*ratio/10)*dif[1];
+            }else{
+                let time = time2 - time1;
+                newPlanet.speed[0] =((1000/(time*-1))*scaling*ratio/10)*dif[0];
+                newPlanet.speed[1] =((1000/(time*-1))*scaling*ratio/10)*dif[1];
+            }
+        myPlanets[array.length] = newPlanet;
+    }
+
+    function mouseUp(){
+        if(newPlanetMade && newPlanet != null){
+            addNewPlanet();
+        }
+        click(newPlanet);
+        newPlanetMade = false;
+    }
+
+    function click(planet){
+        // if(newPlanet != null){
+        //     newPlanet.Remove();
+        // }
+        countsafty += 1;
+        newPlanetMade = false;
+        newPlanet = new Planet(planet.Width,planet.Height,planet.Mass,planet.X,planet.Y,0,planet.Color,planet.Name,planet.Image);
+        newPlanet.Name += countsafty;
+    }
+
+    function move (mouse){
+        if(newPlanet != null && newPlanetMade == false){
+            //console.log(newPlanet.Name + " " + mouse.clientX + " " + mouse.clientY);
+            DrawPlanet(newPlanet, mouse.clientX, mouse.clientY);
+            newPlanetMade = true;
+        }else if(newPlanet != null){
+            movePlanet(mouse.clientX,mouse.clientY);
+        }
+
+    }
+
+    function movePlanet(x,y){
+        var tmpPlanet = document.getElementById(newPlanet.Name);
+        tmpPlanet.style.marginLeft =  x - 5 + "px";
+        tmpPlanet.style.marginTop =  y - 5 + "px";
+        newPlanet.X = x*scaling*ratio;
+        newPlanet.Y = y*scaling*ratio;
+            if(speed12){
+                time1 = new Date();
+                newPlanet.speed[0] = x;
+                newPlanet.speed[1] = y;
+        }else{
+            time2 = new Date();
+            speedextra[0] = x;
+            speedextra[1] = y;
+        }
+        speed12 = !speed12;
+
+    }
+    
     var myArea = {
-            canvas: document.createElement("canvas"),
-            start : function() {
-                this.interval = setInterval(updateArea, 30);
-                this.canvas.width = screenWidth - 50;
-                this.canvas.height = screenHeight - 20;
-                this.canvas.className = "backGround";
-                this.context = this.canvas.getContext("2d");
-
-                document.body.insertBefore(this.canvas, document.body.childNodes[0]);
-                for(let i = 0; i < myPlanets.length; i++){
+        canvas: document.createElement("canvas"),
+        start : function() {
+            this.interval = setInterval(updateArea, 30);
+            this.canvas.width = screenWidth - 50;
+            this.canvas.height = screenHeight - 20;
+            this.canvas.className = "backGround";
+            this.canvas.onmousemove = function (event) { move(event) };
+            this.canvas.ontouchmove = function (event) { move(event) };
+            this.context = this.canvas.getContext("2d");
+            
+            document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+            for(let i = 0; i < myPlanets.length; i++){
                     DrawPlanet(myPlanets[i]);
                 }
                 //document.body.onmousedown = function(){showInfo("test")}
@@ -113,12 +215,12 @@ if (real) {
             for(let i = 0; i < myPlanets.length; i++){
                 let movex = 0;
                 let movey = 0;
+                if(myPlanets[i] != null){
 
-                if(i != 0){
-                //calculates the gravity force for the planet and every other planet
-                for(let y = 0; y < myPlanets.length; y++){
-                    if(y != i){
-
+                    //calculates the gravity force for the planet and every other planet
+                    for(let y = 0; y < myPlanets.length; y++){
+                    if(y != i && myPlanets[y] != null){
+                        
                         //#region 
                         
                         //calculates the gravity force/speed 
@@ -133,7 +235,7 @@ if (real) {
                                     ))
                                     ),
                                     myPlanets[y].Mass
-                        )/1000*2.2**realSpeed;
+                                    )/1000*2.2**realSpeed;
                                     
                                     //#endregion
                                     
@@ -150,62 +252,61 @@ if (real) {
                                     
                                     movex += force*defX;
                                     movey += force*defY;
-                                    console.log(force);
                                 }
-                                }
+                            }
                                 //gives it a new planet
                                 myPlanets[i].newPos(movex, movey);
+                                if((myPlanets[i].X/scaling)/ratio < 0 || (myPlanets[i].X/scaling)/ratio > screenWidth || (myPlanets[i].Y/scaling)/ratio < 0 || (myPlanets[i].Y/scaling)/ratio > screenHeight){
+                                    myPlanets[i].Remove();
+                                    myPlanets[i] = null;
+                                }
+                                
                             }
-                    
                         }
-            }
+                            
+                        }
             for(let i = 0; i < myPlanets.length; i++){
                 //updates the planet
+                
+                if(myPlanets[i] != null){
                 myPlanets[i].update();
+                }
             }
         }
             
     //makes a planet
-    function Planet(width, height, mass, distanceFromcenter, gravity, color, name, image){
-        this.Gravity = gravity;
-        this.X = (screenWidth / 2)- 5 + (distanceFromcenter);
-        this.Y = 0;
-        this.Width = width;
-        this.Height = height;
-        this.Name = name;
-        this.Image = image;
-        this.Mass = mass;
-        this.Color = color;
-        //if it is in the center it dont gets a calculated speed
-        if(distanceFromcenter > 0){
-            this.speed = [0,Velocity(1988430000000000000000000000000,distanceFromcenter)/360*realSpeed**2];
-            // this.speed = [0,48.03*realSpeed];
-        }else{
-            this.speed = [0,0];
-        }
-            
-        //updates the position of the planet
-        this.update = function() {
-            let div = document.getElementById(this.Name);
-            div.style.marginLeft = (screenWidth / 2) + (this.X/scaling)/ratio - 15 + "px";
-            div.style.marginTop = (screenHeight / 2) + (this.Y/scaling)/ratio - 15 + "px";
-            let ctx = myArea.context;
-            ctx.fillStyle = "#ffddff22";
-            ctx.fillRect((screenWidth / 2) + (this.X/scaling)/ratio, (screenHeight / 2) + (this.Y/scaling)/ratio, 1, 1);
-        }
-            
-        //gives it a new location
-        this.newPos = function(movex,movey) {
-            this.speed[0] += movex; 
-            this.speed[1] += movey;
-            // if(this.speed[0] > screenWidth+400 || this.speed[0] < -400){
-            //     this.speed[0] = this.speed[0]*-1;
-            // }
-            // if(this.speed[1] > screenHeight+400 || this.speed[1] < -400){
-            //     this.speed[1] = this.speed[1]*-1;
-            // }
-            this.X += this.speed[0];    
-            this.Y += this.speed[1];
+    class Planet {
+        constructor(width, height, mass, x, y, gravity, color, name, image) {
+            this.Gravity = gravity;
+            this.X = x * scaling * ratio;
+            this.Y = y * scaling * ratio;
+            this.Width = width;
+            this.Height = height;
+            this.Name = name;
+            this.Image = image;
+            this.Mass = mass;
+            this.Color = color;
+            this.speed = [0, 0];
+            //updates the position of the planet
+            this.update = function () {
+                let div = document.getElementById(this.Name);
+                div.style.marginLeft = (this.X / scaling) / ratio - 5 + "px";
+                div.style.marginTop = (this.Y / scaling) / ratio - 5 + "px";
+                let ctx = myArea.context;
+                ctx.fillStyle = "#ffddff22";
+                ctx.fillRect((this.X / scaling) / ratio, (this.Y / scaling) / ratio, 1, 1);
+            };
+            //gives it a new location
+            this.newPos = function (movex, movey) {
+                this.speed[0] += movex;
+                this.speed[1] += movey;
+                this.X += this.speed[0];
+                this.Y += this.speed[1];
+            };
+            this.Remove = function() {
+                let div = document.getElementById(this.Name);
+                div.remove();
+            }
         }
     }
 
@@ -232,14 +333,14 @@ if (real) {
     }
 
     //draws the planets 
-    function DrawPlanet(planet) {
+    function DrawPlanet(planet,x,y) {
         let div = document.createElement("div");
         div.style.backgroundImage = "url(" + planet.Image + ")";
         div.style.marginLeft = planet.X - 15 + "px";
         div.style.marginTop = planet.Y - 15 + "px";
         div.className += "planet";
-        div.onclick = function () { showInfo(planet) };
         div.id = planet.Name;
         document.body.insertBefore(div, document.body.childNodes[0]);
     }
 }
+var planet = new Pl
