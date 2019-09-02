@@ -42,7 +42,8 @@ namespace SolarSystemQuizz
                     {
                         star.Id = Convert.ToInt32(reader["Id"]);
                         star.Name = reader["Name"].ToString();
-                        star.Mass = Convert.ToDecimal(reader["Mass"]);
+                        //star.Mass = reader["Mass"].ToString();
+                        star.Mass = reader["Mass"].ToString();
                         star.Diameter = Convert.ToInt32(reader["Diameter"]);
                         star.MinTemp = Convert.ToInt32(reader["MinTemp"]);
                         star.MaxTemp = Convert.ToInt32(reader["MaxTemp"]);
@@ -76,7 +77,7 @@ namespace SolarSystemQuizz
                     {
                         planet.Id = Convert.ToInt32(reader["Id"]);
                         planet.Name = reader["Name"].ToString();
-                        planet.Mass = Convert.ToDecimal(reader["Mass"]);
+                        planet.Mass = reader["Mass"].ToString();
                         planet.Diameter = Convert.ToInt32(reader["Diameter"]);
                         planet.MinTemp = Convert.ToInt32(reader["MinTemp"]);
                         planet.MaxTemp = Convert.ToInt32(reader["MaxTemp"]);
@@ -113,7 +114,7 @@ namespace SolarSystemQuizz
                         Planet planet = new Planet();
                         planet.Id = Convert.ToInt32(reader["Id"]);
                         planet.Name = reader["Name"].ToString();
-                        planet.Mass = Convert.ToDecimal(reader["Mass"]);
+                        planet.Mass = reader["Mass"].ToString();
                         planet.Diameter = Convert.ToInt32(reader["Diameter"]);
                         planet.MinTemp = Convert.ToInt32(reader["MinTemp"]);
                         planet.MaxTemp = Convert.ToInt32(reader["MaxTemp"]);
@@ -151,7 +152,7 @@ namespace SolarSystemQuizz
                     {
                         moon.Id = Convert.ToInt32(reader["Id"]);
                         moon.Name = reader["Name"].ToString();
-                        moon.Mass = Convert.ToDecimal(reader["Mass"]);
+                        moon.Mass = reader["Mass"].ToString();
                         moon.Diameter = Convert.ToInt32(reader["Diameter"]);
                         moon.MinTemp = Convert.ToInt32(reader["MinTemp"]);
                         moon.MaxTemp = Convert.ToInt32(reader["MaxTemp"]);
@@ -188,7 +189,7 @@ namespace SolarSystemQuizz
                         Moon moon = new Moon();
                         moon.Id = Convert.ToInt32(reader["Id"]);
                         moon.Name = reader["Name"].ToString();
-                        moon.Mass = Convert.ToDecimal(reader["Mass"]);
+                        moon.Mass = reader["Mass"].ToString();
                         moon.Diameter = Convert.ToInt32(reader["Diameter"]);
                         moon.MinTemp = Convert.ToInt32(reader["MinTemp"]);
                         moon.MaxTemp = Convert.ToInt32(reader["MaxTemp"]);

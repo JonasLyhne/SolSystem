@@ -6,7 +6,7 @@ USE SolarSystem;
 CREATE TABLE Element(
     ID                  INT             NOT NULL    AUTO_INCREMENT,
     Name                Varchar(255),
-    Mass                DECIMAL(32),
+    Mass                Varchar(150),
     Diameter            INT,
     MinTemp             INT,
     MaxTemp             INT,

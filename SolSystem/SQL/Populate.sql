@@ -1,17 +1,17 @@
 use solarsystem;
 
 /*adds all the info to element*/
-INSERT INTO Element (Name,Mass,Diameter,MinTemp,MaxTemp,MeanTemp,RotationPeriod,RingSystem)VALUES('Solen',1988430000000000000000000000000,1392000,5506,5506,5506,"0a27d6t36m0s",1);
-INSERT INTO Element (Name,Mass,Diameter,MinTemp,MaxTemp,MeanTemp,RotationPeriod,RingSystem)VALUES('Merkur',330200000000000000000000,4879,-180,-180,167,"0a58d15t30m32s",0);
-INSERT INTO Element (Name,Mass,Diameter,MinTemp,MaxTemp,MeanTemp,RotationPeriod,RingSystem)VALUES('Venus',48685000000000000000000000,12104,465,465,464,"0a224d16t49m23s",0);
-INSERT INTO Element (Name,Mass,Diameter,MinTemp,MaxTemp,MeanTemp,RotationPeriod,RingSystem)VALUES('Jorden',5972230000000000000000000,12.746,-88,58,15,"0a23t56m4s",0);
-INSERT INTO Element (Name,Mass,Diameter,MinTemp,MaxTemp,MeanTemp,RotationPeriod,RingSystem)VALUES('Månen',73000000000000000000000,3475,-173,260,-20,"0a27d19t15m0s",0);
-INSERT INTO Element (Name,Mass,Diameter,MinTemp,MaxTemp,MeanTemp,RotationPeriod,RingSystem)VALUES('Mars',641850000000000000000000,6773,-125,20,-65,"0a1d0t37m23s",0);
-INSERT INTO Element (Name,Mass,Diameter,MinTemp,MaxTemp,MeanTemp,RotationPeriod,RingSystem)VALUES('Jupiter',1899000000000000000000000000,138347,-128,4,-110,"0a27d9t55m20s",1);
-INSERT INTO Element (Name,Mass,Diameter,MinTemp,MaxTemp,MeanTemp,RotationPeriod,RingSystem)VALUES('Saturn',568460000000000000000000000,378675,-173,57,-140,"0a27d10t39m22s",1);
-INSERT INTO element (Name,Mass,Diameter,MinTemp,MaxTemp,MeanTemp,RotationPeriod,RingSystem)VALUES('Uranus',86832000000000000000000000,50532,-224,-216,-220,"0a27d17t14m0s",1);
-INSERT INTO Element (Name,Mass,Diameter,MinTemp,MaxTemp,MeanTemp,RotationPeriod,RingSystem)VALUES('Neptun',102430000000000000000000000,49105,-218,-200,-200,"0a27d16t6m36s",1);
-INSERT INTO Element (Name,Mass,Diameter,MinTemp,MaxTemp,MeanTemp,RotationPeriod,RingSystem)VALUES('Pluto',12500000000000000000000,2390,-233,-223,-225,"0a6d9t17m36s",0);
+INSERT INTO Element (Name,Mass,Diameter,MinTemp,MaxTemp,MeanTemp,RotationPeriod,RingSystem)VALUES('Solen',"1988430000000000000000000000000",1392000,5506,5506,5506,"0a27d6t36m0s",1);
+INSERT INTO Element (Name,Mass,Diameter,MinTemp,MaxTemp,MeanTemp,RotationPeriod,RingSystem)VALUES('Merkur',"330200000000000000000000",4879,-180,-180,167,"0a58d15t30m32s",0);
+INSERT INTO Element (Name,Mass,Diameter,MinTemp,MaxTemp,MeanTemp,RotationPeriod,RingSystem)VALUES('Venus',"48685000000000000000000000",12104,465,465,464,"0a224d16t49m23s",0);
+INSERT INTO Element (Name,Mass,Diameter,MinTemp,MaxTemp,MeanTemp,RotationPeriod,RingSystem)VALUES('Jorden',"5972230000000000000000000",12.746,-88,58,15,"0a23t56m4s",0);
+INSERT INTO Element (Name,Mass,Diameter,MinTemp,MaxTemp,MeanTemp,RotationPeriod,RingSystem)VALUES('Månen',"73000000000000000000000",3475,-173,260,-20,"0a27d19t15m0s",0);
+INSERT INTO Element (Name,Mass,Diameter,MinTemp,MaxTemp,MeanTemp,RotationPeriod,RingSystem)VALUES('Mars',"641850000000000000000000",6773,-125,20,-65,"0a1d0t37m23s",0);
+INSERT INTO Element (Name,Mass,Diameter,MinTemp,MaxTemp,MeanTemp,RotationPeriod,RingSystem)VALUES('Jupiter',"1899000000000000000000000000",138347,-128,4,-110,"0a27d9t55m20s",1);
+INSERT INTO Element (Name,Mass,Diameter,MinTemp,MaxTemp,MeanTemp,RotationPeriod,RingSystem)VALUES('Saturn',"568460000000000000000000000",378675,-173,57,-140,"0a27d10t39m22s",1);
+INSERT INTO element (Name,Mass,Diameter,MinTemp,MaxTemp,MeanTemp,RotationPeriod,RingSystem)VALUES('Uranus',"86832000000000000000000000",50532,-224,-216,-220,"0a27d17t14m0s",1);
+INSERT INTO Element (Name,Mass,Diameter,MinTemp,MaxTemp,MeanTemp,RotationPeriod,RingSystem)VALUES('Neptun',"102430000000000000000000000",49105,-218,-200,-200,"0a27d16t6m36s",1);
+INSERT INTO Element (Name,Mass,Diameter,MinTemp,MaxTemp,MeanTemp,RotationPeriod,RingSystem)VALUES('Pluto',"12500000000000000000000",2390,-233,-223,-225,"0a6d9t17m36s",0);
 
 /*adds the star*/
 INSERT INTO Star (ElementId,Color,NumberOfPlanets)VALUES((SELECT ID FROM Element where Name = 'Solen'),'White',9);
