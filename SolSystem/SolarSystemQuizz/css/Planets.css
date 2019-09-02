@@ -1,4 +1,5 @@
 ﻿body {
+    overflow: hidden;
     background-color: black;
     background-image: url(https://ak9.picdn.net/shutterstock/videos/14503699/thumb/1.jpg);
     background-size: auto;

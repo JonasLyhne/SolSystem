@@ -19,35 +19,6 @@ let real = true;
 let screenWidth = window.innerWidth;
 let screenHeight = window.innerHeight;
 
-    // function switchReal() {
-    //     setCookie("showReal", "test", 30);
-    //     console.log(getCookie("showReal"));
-    //     console.log("ran");
-    // }
-
-    // function setCookie(cname, cvalue, exdays) {
-    //     var d = new Date();
-    //     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-    //     var expires = "expires=" + d.toGMTString();
-    //     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-    // }
-
-    // function getCookie(cname) {
-    //     var name = cname + "=";
-    //     var decodedCookie = decodeURIComponent(document.cookie);
-    //     var ca = decodedCookie.split(';');
-    //     for (var i = 0; i < ca.length; i++) {
-    //         var c = ca[i];
-    //         while (c.charAt(0) == ' ') {
-    //             c = c.substring(1);
-    //         }
-    //         if (c.indexOf(name) == 0) {
-    //             return c.substring(name.length, c.length);
-    //         }
-    //     }
-    //     return "";
-    // }
-
 if (real) {
 
     // 1 px = x km
@@ -164,8 +135,8 @@ if (real) {
 
     function movePlanet(x,y){
         var tmpPlanet = document.getElementById(newPlanet.Name);
-        tmpPlanet.style.marginLeft =  x - 5 + "px";
-        tmpPlanet.style.marginTop =  y - 5 + "px";
+        tmpPlanet.style.marginLeft =  x - 10 + "px";
+        tmpPlanet.style.marginTop =  y - 10 + "px";
         newPlanet.X = x*scaling*ratio;
         newPlanet.Y = y*scaling*ratio;
             if(speed12){
@@ -185,8 +156,8 @@ if (real) {
         canvas: document.createElement("canvas"),
         start : function() {
             this.interval = setInterval(updateArea, 30);
-            this.canvas.width = screenWidth - 50;
-            this.canvas.height = screenHeight - 20;
+            this.canvas.width = screenWidth;
+            this.canvas.height = screenHeight;
             this.canvas.className = "backGround";
             this.canvas.onmousemove = function (event) { move(event) };
             this.canvas.ontouchmove = function (event) { move(event) };
@@ -290,8 +261,8 @@ if (real) {
             //updates the position of the planet
             this.update = function () {
                 let div = document.getElementById(this.Name);
-                div.style.marginLeft = (this.X / scaling) / ratio - 5 + "px";
-                div.style.marginTop = (this.Y / scaling) / ratio - 5 + "px";
+                div.style.marginLeft = (this.X / scaling) / ratio - 10 + "px";
+                div.style.marginTop = (this.Y / scaling) / ratio - 10 + "px";
                 let ctx = myArea.context;
                 ctx.fillStyle = "#ffddff22";
                 ctx.fillRect((this.X / scaling) / ratio, (this.Y / scaling) / ratio, 1, 1);
@@ -336,8 +307,8 @@ if (real) {
     function DrawPlanet(planet,x,y) {
         let div = document.createElement("div");
         div.style.backgroundImage = "url(" + planet.Image + ")";
-        div.style.marginLeft = planet.X - 15 + "px";
-        div.style.marginTop = planet.Y - 15 + "px";
+        div.style.marginLeft = x - 10 + "px";
+        div.style.marginTop = y - 10 + "px";
         div.className += "planet";
         div.id = planet.Name;
         document.body.insertBefore(div, document.body.childNodes[0]);
