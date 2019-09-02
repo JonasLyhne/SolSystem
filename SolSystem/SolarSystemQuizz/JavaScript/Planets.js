@@ -1,6 +1,8 @@
 ﻿
 //a array of the planets
 var myPlanets;
+var mySolarSystem;
+var GetSolarSystemUri = 'api/GetSolarSystem';
 
 var realSpeed = 30;
 
@@ -8,7 +10,14 @@ let real = false;
 //the screen size
 let screenWidth = window.innerWidth;
 let screenHeight = window.innerHeight;
+// Ajax Help page: https://docs.microsoft.com/en-us/aspnet/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
+$(document).ready(function() {
+    $.getJSON(GetSolarSystemUri).done(function(data) {
+        mySolarSystem = data;
+    });
+});
 
+console.log(mySolarSystem);
     // function switchReal() {
     //     setCookie("showReal", "test", 30);
     //     console.log(getCookie("showReal"));
