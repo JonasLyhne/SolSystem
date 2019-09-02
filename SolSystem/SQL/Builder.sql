@@ -73,3 +73,14 @@ CREATE TABLE Pics(
         ON DELETE CASCADE 
         ON UPDATE CASCADE
 );
+
+CREATE TABLE ElementInfo(
+    ElementId           INT             NOT NULL,
+    ClassTier           INT             NOT NULL,
+    Title               Varchar(255)    NOT NULL,
+    Info                Text,
+    PRIMARY KEY (ElementId,ClassTier,Title),
+    FOREIGN KEY (ElementId) REFERENCES Element(ID) 
+        ON DELETE CASCADE 
+        ON UPDATE CASCADE
+)
