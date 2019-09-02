@@ -10,7 +10,7 @@ namespace SolarSystemQuizz
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public decimal Mass { get; set; }
+        public string Mass { get; set; }
         public int Diameter { get; set; }
         public int MinTemp { get; set; }
         public int MaxTemp { get; set; }
