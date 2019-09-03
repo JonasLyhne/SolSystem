@@ -200,6 +200,7 @@ namespace SolarSystemQuizz
                         moon.DistanceToPlanet = Convert.ToInt64(reader["DistanceToPlanet"]);
                         moon.PeriodOfRevolution = TimeConverter.GetTimeInSeconds(reader["Revolution"].ToString());
                         moon.LengthOfDay = TimeConverter.GetTimeInSeconds(reader["Revolution"].ToString());
+                        moons.Add(moon);
                     }
                 }
                 reader.Close();
