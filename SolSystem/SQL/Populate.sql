@@ -3,8 +3,8 @@ use solarsystem;
 /*adds all the info to element*/
 INSERT INTO Element (Name,Mass,Diameter,MinTemp,MaxTemp,MeanTemp,RotationPeriod,RingSystem)VALUES('Solen',"1988430000000000000000000000000",1392000,5506,5506,5506,"0a27d6t36m0s",1);
 INSERT INTO Element (Name,Mass,Diameter,MinTemp,MaxTemp,MeanTemp,RotationPeriod,RingSystem)VALUES('Merkur',"330200000000000000000000",4879,-180,-180,167,"0a58d15t30m32s",0);
-INSERT INTO Element (Name,Mass,Diameter,MinTemp,MaxTemp,MeanTemp,RotationPeriod,RingSystem)VALUES('Venus',"48685000000000000000000000",12104,465,465,464,"0a224d16t49m23s",0);
-INSERT INTO Element (Name,Mass,Diameter,MinTemp,MaxTemp,MeanTemp,RotationPeriod,RingSystem)VALUES('Jorden',"5972230000000000000000000",12.746,-88,58,15,"0a23t56m4s",0);
+INSERT INTO Element (Name,Mass,Diameter,MinTemp,MaxTemp,MeanTemp,RotationPeriod,RingSystem)VALUES('Venus',"4868500000000000000000000",12104,465,465,464,"0a224d16t49m23s",0);
+INSERT INTO Element (Name,Mass,Diameter,MinTemp,MaxTemp,MeanTemp,RotationPeriod,RingSystem)VALUES('Jorden',"5972230000000000000000000",12746,-88,58,15,"0a23t56m4s",0);
 INSERT INTO Element (Name,Mass,Diameter,MinTemp,MaxTemp,MeanTemp,RotationPeriod,RingSystem)VALUES('Månen',"73000000000000000000000",3475,-173,260,-20,"0a27d19t15m0s",0);
 INSERT INTO Element (Name,Mass,Diameter,MinTemp,MaxTemp,MeanTemp,RotationPeriod,RingSystem)VALUES('Mars',"641850000000000000000000",6773,-125,20,-65,"0a1d0t37m23s",0);
 INSERT INTO Element (Name,Mass,Diameter,MinTemp,MaxTemp,MeanTemp,RotationPeriod,RingSystem)VALUES('Jupiter',"1899000000000000000000000000",138347,-128,4,-110,"0a27d9t55m20s",1);
@@ -30,10 +30,34 @@ INSERT INTO Planet (ElementId,Star,NumberOfMoons,DistanceToSun)VALUES((SELECT ID
 /*Adds the moons*/
 INSERT INTO Moons (ElementId,Parent,DistanceToPlanet)VALUES((SELECT ID FROM Element where Name = 'Månen'),(SELECT ElementId FROM Planet as s, Element as e where e.Name = 'Jorden' AND s.ElementId = e.ID),384400);
 
+/*addes the pics*/
+INSERT INTO Pics (ElementId,Title,Comic)VALUES((SELECT ID FROM Element where Name = 'Solen'),"./Pics/RealPlanet/Sun.gif",0);
+INSERT INTO Pics (ElementId,Title,Comic)VALUES((SELECT ID FROM Element where Name = 'Merkur'),"./Pics/RealPlanet/Merkur.gif",0);
+INSERT INTO Pics (ElementId,Title,Comic)VALUES((SELECT ID FROM Element where Name = 'Venus'),"./Pics/RealPlanet/Venus.gif",0);
+INSERT INTO Pics (ElementId,Title,Comic)VALUES((SELECT ID FROM Element where Name = 'Jorden'),"./Pics/RealPlanet/Earth.gif",0);
+INSERT INTO Pics (ElementId,Title,Comic)VALUES((SELECT ID FROM Element where Name = 'Månen'),"./Pics/RealPlanet/Moon.gif",0);
+INSERT INTO Pics (ElementId,Title,Comic)VALUES((SELECT ID FROM Element where Name = 'Mars'),"./Pics/RealPlanet/Mars.gif",0);
+INSERT INTO Pics (ElementId,Title,Comic)VALUES((SELECT ID FROM Element where Name = 'Jupiter'),"./Pics/RealPlanet/Jupiter.gif",0);
+INSERT INTO Pics (ElementId,Title,Comic)VALUES((SELECT ID FROM Element where Name = 'Saturn'),"./Pics/RealPlanet/Saturn.gif",0);
+INSERT INTO Pics (ElementId,Title,Comic)VALUES((SELECT ID FROM Element where Name = 'Uranus'),"./Pics/RealPlanet/Uranus.gif",0);
+INSERT INTO Pics (ElementId,Title,Comic)VALUES((SELECT ID FROM Element where Name = 'Neptun'),"./Pics/RealPlanet/Neptune.gif",0);
+INSERT INTO Pics (ElementId,Title,Comic)VALUES((SELECT ID FROM Element where Name = 'Pluto'),"./Pics/RealPlanet/Pluto.gif",0);
+
+INSERT INTO Pics (ElementId,Title,Comic)VALUES((SELECT ID FROM Element where Name = 'Solen'),"./Pics/ComicPlanet/Sun.png",1);
+INSERT INTO Pics (ElementId,Title,Comic)VALUES((SELECT ID FROM Element where Name = 'Merkur'),"./Pics/ComicPlanet/Merkur.png",1);
+INSERT INTO Pics (ElementId,Title,Comic)VALUES((SELECT ID FROM Element where Name = 'Venus'),"./Pics/ComicPlanet/Venus.png",1);
+INSERT INTO Pics (ElementId,Title,Comic)VALUES((SELECT ID FROM Element where Name = 'Jorden'),"./Pics/ComicPlanet/Earth.png",1);
+INSERT INTO Pics (ElementId,Title,Comic)VALUES((SELECT ID FROM Element where Name = 'Månen'),"./Pics/ComicPlanet/Moon.png",1);
+INSERT INTO Pics (ElementId,Title,Comic)VALUES((SELECT ID FROM Element where Name = 'Mars'),"./Pics/ComicPlanet/Mars.png",1);
+INSERT INTO Pics (ElementId,Title,Comic)VALUES((SELECT ID FROM Element where Name = 'Jupiter'),"./Pics/ComicPlanet/Jupiter.png",1);
+INSERT INTO Pics (ElementId,Title,Comic)VALUES((SELECT ID FROM Element where Name = 'Saturn'),"./Pics/ComicPlanet/Saturn.png",1);
+INSERT INTO Pics (ElementId,Title,Comic)VALUES((SELECT ID FROM Element where Name = 'Uranus'),"./Pics/ComicPlanet/Uranus.png",1);
+INSERT INTO Pics (ElementId,Title,Comic)VALUES((SELECT ID FROM Element where Name = 'Neptun'),"./Pics/ComicPlanet/Neptune.png",1);
+INSERT INTO Pics (ElementId,Title,Comic)VALUES((SELECT ID FROM Element where Name = 'Pluto'),"./Pics/ComicPlanet/Pluto.png",1);
 
 /*Adds info to OrbitingElement*/
 INSERT INTO orbitingelement (ElementId,Revolution,LengthOfDay)VALUES((SELECT ID FROM Element where Name = 'Merkur'),'0a87d57t36m0s','0a58d15t30m0s');
-INSERT INTO orbitingelement (ElementId,Revolution,LengthOfDay)VALUES((SELECT ID FROM Element where Name = 'Venus'),'1a218d16t4m48s','0a243d0t0m0s');
+INSERT INTO orbitingelement (ElementId,Revolution,LengthOfDay)VALUES((SELECT ID FROM Element where Name = 'Venus'),'0a218d16t4m48s','0a243d0t0m0s');
 INSERT INTO orbitingelement (ElementId,Revolution,LengthOfDay)VALUES((SELECT ID FROM Element where Name = 'Jorden'),'1a0d0t10m1s','0a0d23t56m4s');
 INSERT INTO orbitingelement (ElementId,Revolution,LengthOfDay)VALUES((SELECT ID FROM Element where Name = 'Månen'),'0a27d7t43m12s','0a29d12t0m0s');
 INSERT INTO orbitingelement (ElementId,Revolution,LengthOfDay)VALUES((SELECT ID FROM Element where Name = 'Mars'),'1a321d17t2m32s','0a1d0t37m0s');
