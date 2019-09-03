@@ -33,7 +33,7 @@ namespace SolarSystemQuizz
             using (connection)
             {
                 MySqlCommand command = new MySqlCommand(
-                    "SELECT * FROM element e JOIN star s ON s.ElementId = e.ID", connection);
+                    "SELECT * FROM element e JOIN star s ON s.ElementId = e.ID JOIN Pics p ON p.ElementId = e.ID", connection);
                 connection.Open();
                 MySqlDataReader reader = command.ExecuteReader();
                 if (reader.HasRows)
@@ -43,6 +43,7 @@ namespace SolarSystemQuizz
                         star.Id = Convert.ToInt32(reader["Id"]);
                         star.Name = reader["Name"].ToString();
                         //star.Mass = reader["Mass"].ToString();
+                        star.Image = reader["Title"].ToString();
                         star.Mass = reader["Mass"].ToString();
                         star.Diameter = Convert.ToInt32(reader["Diameter"]);
                         star.MinTemp = Convert.ToInt32(reader["MinTemp"]);
@@ -67,7 +68,7 @@ namespace SolarSystemQuizz
             using (connection)
             {
                 MySqlCommand command = new MySqlCommand(
-                    "SELECT * FROM element e JOIN planet p ON p.ElementId = e.ID JOIN orbitingelement oe ON oe.ElementId = p.ElementId WHERE p.ElementId = @Id;", connection);
+                    "SELECT * FROM element e JOIN planet p ON p.ElementId = e.ID JOIN orbitingelement oe ON oe.ElementId = p.ElementId JOIN Pics pi ON pi.ElementId = e.ID WHERE p.ElementId = @Id;", connection);
                 command.Parameters.AddWithValue("@Id", id);
                 connection.Open();
                 MySqlDataReader reader = command.ExecuteReader();
@@ -77,6 +78,7 @@ namespace SolarSystemQuizz
                     {
                         planet.Id = Convert.ToInt32(reader["Id"]);
                         planet.Name = reader["Name"].ToString();
+                        planet.Image = reader["Title"].ToString();
                         planet.Mass = reader["Mass"].ToString();
                         planet.Diameter = Convert.ToInt32(reader["Diameter"]);
                         planet.MinTemp = Convert.ToInt32(reader["MinTemp"]);
@@ -104,7 +106,7 @@ namespace SolarSystemQuizz
             using (connection)
             {
                 MySqlCommand command = new MySqlCommand(
-                    "SELECT * FROM element e JOIN planet p ON p.ElementId = e.ID JOIN orbitingelement oe ON oe.ElementId = p.ElementId", connection);
+                    "SELECT * FROM element e JOIN planet p ON p.ElementId = e.ID JOIN orbitingelement oe ON oe.ElementId = p.ElementId JOIN Pics pi ON pi.ElementId = e.ID", connection);
                 connection.Open();
                 MySqlDataReader reader = command.ExecuteReader();
                 if (reader.HasRows)
@@ -114,6 +116,7 @@ namespace SolarSystemQuizz
                         Planet planet = new Planet();
                         planet.Id = Convert.ToInt32(reader["Id"]);
                         planet.Name = reader["Name"].ToString();
+                        planet.Image = reader["Title"].ToString();
                         planet.Mass = reader["Mass"].ToString();
                         planet.Diameter = Convert.ToInt32(reader["Diameter"]);
                         planet.MinTemp = Convert.ToInt32(reader["MinTemp"]);
@@ -142,7 +145,7 @@ namespace SolarSystemQuizz
             using (connection)
             {
                 MySqlCommand command = new MySqlCommand(
-                    "SELECT * FROM element e JOIN moons m ON m.ElementId = e.ID JOIN orbitingelement oe ON oe.ElementId = m.ElementId WHERE m.ElementId = @Id;", connection);
+                    "SELECT * FROM element e JOIN moons m ON m.ElementId = e.ID JOIN orbitingelement oe ON oe.ElementId = m.ElementId JOIN Pics p ON p.ElementId = e.ID WHERE m.ElementId = @Id;", connection);
                 command.Parameters.AddWithValue("@Id", id);
                 connection.Open();
                 MySqlDataReader reader = command.ExecuteReader();
@@ -152,6 +155,7 @@ namespace SolarSystemQuizz
                     {
                         moon.Id = Convert.ToInt32(reader["Id"]);
                         moon.Name = reader["Name"].ToString();
+                        moon.Image = reader["Title"].ToString();
                         moon.Mass = reader["Mass"].ToString();
                         moon.Diameter = Convert.ToInt32(reader["Diameter"]);
                         moon.MinTemp = Convert.ToInt32(reader["MinTemp"]);
@@ -178,7 +182,7 @@ namespace SolarSystemQuizz
             using (connection)
             {
                 MySqlCommand command = new MySqlCommand(
-                    "SELECT * FROM element e JOIN moons m ON m.ElementId = e.ID JOIN orbitingelement oe ON oe.ElementId = m.ElementId WHERE m.Parent = @ParentId;", connection);
+                    "SELECT * FROM element e JOIN moons m ON m.ElementId = e.ID JOIN orbitingelement oe ON oe.ElementId = m.ElementId JOIN Pics p ON p.ElementId = e.ID WHERE m.Parent = @ParentId;", connection);
                 command.Parameters.AddWithValue("@ParentId", parentId);
                 connection.Open();
                 MySqlDataReader reader = command.ExecuteReader();
@@ -189,6 +193,7 @@ namespace SolarSystemQuizz
                         Moon moon = new Moon();
                         moon.Id = Convert.ToInt32(reader["Id"]);
                         moon.Name = reader["Name"].ToString();
+                        moon.Image = reader["Title"].ToString();
                         moon.Mass = reader["Mass"].ToString();
                         moon.Diameter = Convert.ToInt32(reader["Diameter"]);
                         moon.MinTemp = Convert.ToInt32(reader["MinTemp"]);
@@ -200,6 +205,7 @@ namespace SolarSystemQuizz
                         moon.DistanceToPlanet = Convert.ToInt64(reader["DistanceToPlanet"]);
                         moon.PeriodOfRevolution = TimeConverter.GetTimeInSeconds(reader["Revolution"].ToString());
                         moon.LengthOfDay = TimeConverter.GetTimeInSeconds(reader["Revolution"].ToString());
+                        moons.Add(moon);
                     }
                 }
                 reader.Close();

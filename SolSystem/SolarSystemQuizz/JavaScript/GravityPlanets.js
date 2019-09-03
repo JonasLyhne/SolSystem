@@ -13,52 +13,57 @@ var time2;
 var planetOptions;
 
 var realSpeed = 30;
-
 let real = true;
 //the screen size
 let screenWidth = window.innerWidth;
 let screenHeight = window.innerHeight;
 
+var GetSolarSystemUri = "api/getsolarsystem";
+
+$(document).ready(function() {
+    $.ajax({
+        type: "get",
+        url: GetSolarSystemUri,
+        contentType: "application/json;",
+        dataType: "json",
+        success: function(data) {
+            startPlanets(data);
+        },
+        error: function(err) {
+            alert(err.d);
+        }
+    });
+    console.log(mySolarSystem);
+});
 if (real) {
 
     // 1 px = x km
     let ratio = 10000000*2 / ((screenHeight+screenWidth)/2)
     //downscaling
     let scaling = 200;
-    function startPlanets() {
-        //planets with faces
-        // myPlanets = [
-            //     new Planet(1392000/10,1392000/10,1988430000000000000000000000000/scaling,0, "yellow","sun","https://solarsystem.nasa.gov/system/basic_html_elements/11561_Sun.png"),
-            //     new Planet(4879/10,4879/10,330200000000000000000000/scaling,57522077*2/scaling,"gray","merkur","https://solarsystem.nasa.gov/system/basic_html_elements/x11732_mercury.png.pagespeed.ic.i4-Hz13_DV.png"),
-            //     new Planet(12104/10,12104/10,4868500000000000000000000/scaling,108208926*2/scaling,"red","venus","https://solarsystem.nasa.gov/system/basic_html_elements/x11733_venus.png.pagespeed.ic.VkWiDYC7tL.png"),
-            //     new Planet(12745.591/10,12745.591/10,5972230000000000000000000/scaling,149597887*2/scaling,"green","Earth","https://solarsystem.nasa.gov/system/basic_html_elements/x11734_earth.png.pagespeed.ic.3ZifaCkqgf.png"),
-            //     new Planet(6773/10,6773/10,641850000000000000000000/scaling,227936637*2/scaling,"red","Mars","https://solarsystem.nasa.gov/system/basic_html_elements/x11735_mars.png.pagespeed.ic.ezyHkOsck8.png"),
-            //     new Planet(138346.5/10,138346.5/10,1899000000000000000000000000/scaling,778412027/scaling,"lightbrown","jupiter","https://solarsystem.nasa.gov/system/basic_html_elements/x11736_jupiter.png.pagespeed.ic.pbG_7LL2ap.png"),
-            //     new Planet(378675/10,378675/10,568460000000000000000000000/scaling,1426725413/1.3/scaling,"lightbrown","saturn","https://astronlogia.com/wp-content/uploads/2009/06/saturn-256x256.png"),
-            //     new Planet(50532/10,50532/10,86832000000000000000000000/scaling,2870972220/2.1/scaling,"lightblue","Uranus","https://numerologi-fyn.dk/images/uranus.png"),
-            //     new Planet(49104.5/10,49104.5/10,102430000000000000000000000/scaling,4498252900/2.5/scaling,"blue","Neptune","https://solarsystem.nasa.gov/system/basic_html_elements/x11739_neptune.png.pagespeed.ic.QJUTj2bWVK.png"),
-            //     new Planet(2390/10,2390/10,12500000000000000000000/scaling,5906376272/2.5/scaling,"white","Pluto","https://solarsystem.nasa.gov/system/basic_html_elements/11669_Pluto_lrg.png"),
-            // ];
-            
-            //normal real planets
-            planetOptions = [
+    function startPlanets(mySystem) {
+        let totalplanets = 1+ mySystem.Planets.length;
+        for(let i = 0; i < mySystem.Planets.length; i++){
+            totalplanets += mySystem.Planets[i].Moons.length;
+        }
+        planetOptions = new Array(totalplanets);
 
-                new Planet(1392000,1392000,1988430000000000000000000000000,0,0,274, "yellow","sun","./Pics/RealPlanet/Sun.gif"),
-                new Planet(4879,4879,330200000000000000000000,0,0,3.7,"gray","merkur","./Pics/RealPlanet/Merkur.gif"),
-                new Planet(12104,12104,4868500000000000000000000,0,0,8.87,"red","venus","./Pics/RealPlanet/Venus.gif"),
-                new Planet(12745.591,12745.591,5972230000000000000000000,0,0,9.798,"green","Jorden","./Pics/RealPlanet/Earth.gif"),
-                new Planet(6773,6773,641850000000000000000000,0,0,3.71,"red","Mars","./Pics/RealPlanet/Mars.gif"),
-                new Planet(138346.5,138346.5,1899000000000000000000000000,0,0,24.92,"brown","jupiter","./Pics/RealPlanet/Jupiter.gif"),
-                new Planet(378675,378675,568460000000000000000000000,0,0,10.44,"lightbrown","saturn","./Pics/RealPlanet/Saturn.gif"),
-                new Planet(50532,50532,86832000000000000000000000,0,0,8.87,"lightblue","Uranus","./Pics/RealPlanet/Uranus.gif"),
-                new Planet(49104.5,49104.5,102430000000000000000000000,0,0,11.15,"blue","Neptune","./Pics/RealPlanet/Neptune.gif"),
-                new Planet(2390,2390,12500000000000000000000,0,0,0.58,"white","Pluto","./Pics/RealPlanet/Pluto.gif"),
-        ];
+        planetOptions[0] = new Planet(mySystem.Diameter,mySystem.Diameter,mySystem.Mass,0,0,0,"#ffffff",mySystem.Name,mySystem.Image);
+        let count = 1;
+        for(let i = 0; i < mySystem.Planets.length; i++){
+            let planet = mySystem.Planets[i];
+            planetOptions[count] = new Planet(planet.Diameter,planet.Diameter,planet.Mass,0,0,0,"#ffffff",planet.Name,planet.Image);
+            count++;
+            for(let y = 0; y < planet.Moons.length; y++){
+                let moon = planet.Moons[y];
+                planetOptions[count] = new Planet(moon.Diameter,moon.Diameter,moon.Mass,0,0,0,"#ffffff",moon.Name,moon.Image);
+                count++;
+            }
+        }
         document.onmouseup = function () { mouseUp() };
         document.ontouchend = function () { mouseUp() };
         myPlanets = [];
-        for(let i = 0; i < planetOptions.length; i++){
-            
+        for(let i = 0; i < planetOptions.length; i++){  
             showOptions(planetOptions[i]);
         }
         myArea.start();
