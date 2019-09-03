@@ -6,12 +6,12 @@
         <title>SolarSystem</title>
         <link rel="stylesheet" href="css/Planets.css" />
         <link rel="stylesheet" href="css/button.css"/>
-        <link rel="stylesheet" href="css/Navbar.css"/>
-        <script src="JavaScript/Nav.js"></script>
+        <link rel="stylesheet" href="css/Default.css"/>
+        <script src="JavaScript/Default.js"></script>
         <script src="JavaScript/jquery-3.4.1.js"></script>
         <script src="JavaScript/Planets.js"></script>
     </head>
-    <body onload="MakeNavBar()" class="lock">
+    <body onload="Make()" class="lock">
     <!-- Rounded switch -->
     <!--<button onclick="switchReal()" style="z-index:500;">button</button>-->
 
@@ -20,7 +20,7 @@
                 <h1 id="planetName" class="title"></h1>
             </div>
             <img id="image" class="image">
-            <p>her står der noget text</p>
+            <div id="infoContent"></div>
         </div>
         <div id="fill" class="fill" onclick="closeInfo()" hidden=true>
 

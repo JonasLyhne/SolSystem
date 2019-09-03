@@ -26,6 +26,67 @@ namespace SolarSystemQuizz
             return star;
         }
 
+        public List<int> GetAllIDs()
+        {
+            List<int> ids = new List<int>();
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            using (connection)
+            {
+                MySqlCommand command = new MySqlCommand(
+                    "SELECT ID FROM element", connection);
+                connection.Open();
+                MySqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        ids.Add(Convert.ToInt32(reader["ID"]));
+                    }
+                }
+                reader.Close();
+            }
+            return ids;
+        }
+
+        public InformationHolder GetPlanetInfoById(int id)
+        {
+            string lastPlanetName = "";
+            string currentPlanetName = "";
+            InformationHolder informationHolder = new InformationHolder();
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            using (connection)
+            {
+                MySqlCommand command = new MySqlCommand(
+                    "SELECT * FROM ElementInfo ei JOIN Element e ON ei.ElementId = e.ID where ei.ElementId = @Id", connection);
+                command.Parameters.AddWithValue("@Id", id);
+                connection.Open();
+                MySqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    List<Information> information = new List<Information>();
+                    while (reader.Read())
+                    {
+                        currentPlanetName = reader["Name"].ToString();
+                        if (lastPlanetName == currentPlanetName)
+                        {
+                            information.Add(new Information(Convert.ToInt32(reader["ClassTier"]), reader["Title"].ToString(), reader["Info"].ToString()));
+                        }
+                        else
+                        {
+                            informationHolder = new InformationHolder();
+                            informationHolder.Name = currentPlanetName;
+                            informationHolder.Id = Convert.ToInt32(reader["Id"]);
+                            information.Add(new Information(Convert.ToInt32(reader["ClassTier"]), reader["Title"].ToString(), reader["Info"].ToString()));
+                        }
+                    }
+                    informationHolder.Information = information.ToArray();
+                }
+                reader.Close();
+            }
+
+            return informationHolder;
+        }
+
         public Star GetStar()
         {
             Star star = new Star();

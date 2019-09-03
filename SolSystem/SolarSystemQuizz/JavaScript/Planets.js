@@ -1,13 +1,39 @@
-﻿
+﻿var 
 //a array of the planets
 var mySun;
 var GetSolarSystemUri = "api/getsolarsystem";
-
+var GetSolarSystemInfoUri = "api/GetInfo";
+var SolarSystemInfo;
+var SolarSystemInfoNameIdlist;
+//var classTier = 0;
 //the screen size
 let screenWidth = window.innerWidth;
 let screenHeight = window.innerHeight;
 // Ajax Help page: https://docs.microsoft.com/en-us/aspnet/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
 
+
+
+
+
+
+$(document).ready(function() {
+    $.ajax({
+        type: "get",
+        url: GetSolarSystemInfoUri,
+        contentType: "application/json;",
+        dataType: "json",
+        success: function(data) {
+            SolarSystemInfo = data;
+            SolarSystemInfoNameIdlist = new Array(SolarSystemInfo.length);
+            for(let i = 0; i < SolarSystemInfo.length; i++){
+                SolarSystemInfoNameIdlist[i] = SolarSystemInfo[i].Name;
+            }
+        },
+        error: function(err) {
+            alert(err.d);
+        }
+    });
+});
 $(document).ready(function() {
     $.ajax({
         type: "get",
@@ -29,20 +55,7 @@ $(document).ready(function() {
     let fastestRevolution = 5067032;
     let planetSize;
     function startPlanets(sun) {
-        //planets with faces
-        // myPlanets = [
-        //         new Planet("sun","Sun",70,0,"./Pics/ComicPlanet/Sun.png"),
-        //         new Planet("merkur","Planet",40,3,"./Pics/ComicPlanet/Merkur.png"),
-        //         new Planet("venus","Planet",49,0.45,"./Pics/ComicPlanet/Venus.png"),
-        //         new Planet("Earth","Planet",50,0.72,"./Pics/ComicPlanet/Earth.png"),
-        //         new Moon("moon","Moon",20,2.65,"./Pics/ComicPlanet/Moon.png"),
-        //         new Planet("Mars","Planet",40,0.38,"./Pics/ComicPlanet/Mars.png"),
-        //         new Planet("jupiter","Planet",65,0.06,"./Pics/ComicPlanet/Jupiter.png"),
-        //         new Planet("saturn","Planet",60,0.02,"./Pics/ComicPlanet/Saturn.png"),
-        //         new Planet("Uranus","Planet",50,0.009,"./Pics/ComicPlanet/Uranus.png"),
-        //         new Planet("Neptune","Planet",60,0.005,"./Pics/ComicPlanet/Neptune.png"),
-        //         new Planet("Pluto","Planet",30,0.003,"./Pics/ComicPlanet/Pluto.png"),
-        //     ];
+        //set(1);
         mySun = new Sun(sun.Name,sun.Image,new Array(sun.Planets.length));
         let tmpPlanets = new Array(sun.Planets.length);
         for(let i = 0; i < tmpPlanets.length; i++){
@@ -72,7 +85,6 @@ $(document).ready(function() {
         }
         return 0;
       }
-
     var myArea = {
 
         canvas: document.createElement("canvas"),
@@ -98,70 +110,20 @@ $(document).ready(function() {
     function updateArea() {
             mySun.Update();
         }
-
-        // //makes a planet
-        // function Planet(name,type, width, speed, image){
-        //     this.Type = type;
-        //     this.Angle = 0;
-        //     this.Speed = speed;
-        //     this.X = (screenWidth / 4*2)- nextDistand - 25;
-        //     this.Y = (screenHeight/ 2) - 25;
-        //     this.Distance = nextDistand;
-        //     this.Width = width;
-        //     this.Name = name;
-        //     this.Image = image;
-        //     nextDistand += 50;    
-
-        //     //updates the position of the planet
-        //     this.update = function() {
-        //         let div = document.getElementById(this.Name);
-        //         div.style.marginLeft = this.X - this.Width/2  + "px";
-        //         div.style.marginTop = this.Y - this.Width / 2 + "px";
-        //         let ctx = myArea.context;
-        //         ctx.fillStyle = "#ffddff22";
-        //         ctx.fillRect(this.X, this.Y, 2, 2);
-        //     }
-                
-        //     //gives it a new location
-        //     this.newPos = function(newX,newY) {
-        //         this.X = newX;    
-        //         this.Y = newY;
-        //     }
-        // }
-
-        // //makes a planet
-        // function Moon(name, type, width, speed, image){
-        //     this.Type = type;
-        //     this.Angle = 0;
-        //     this.Speed = speed;
-        //     this.X = 0;
-        //     this.Y = 0;
-        //     this.Distance = 35;
-        //     this.Width = width;
-        //     this.Name = name;
-        //     this.Image = image;
-
-        //     //updates the position of the planet
-        //     this.update = function(viewX,viewY) {
-        //         let div = document.getElementById(this.Name);
-        //         div.style.marginLeft = viewX - this.Width/2  + "px";
-        //         div.style.marginTop = viewY - this.Width / 2 + "px";
-        //         let ctx = myArea.context;
-        //         ctx.fillStyle = "#ff99ff22";
-        //         ctx.fillRect(viewX, viewY, 2, 2);
-        //     }
-                
-        //     //gives it a new location
-        //     this.newPos = function(newX,newY) {
-        //         this.X = newX;    
-        //         this.Y = newY;
-        //     }
-        // }
-
-
         
     //shows the information about the planet
     function showInfo(planet){;
+        let classTier = get();
+        console.log(classTier);
+        let infoholder = SolarSystemInfoName[SolarSystemInfoNameIdlist.indexOf(planet.name)]
+        let infoContent = document.getElementById("infoContent");
+        for(let i = 0; i < infoholder.Information.length; i++){
+            if(infoholder.Information[i].ClassTier == get().classTier){
+                let paragraph = document.createElement("p");
+                paragraph.innerHTML = ("<b>"+ infoholder.Information[i].Title+":</b> "+infoholder.Information[i].Info);
+                infoContent.append(paragraph);
+            }
+        }
         document.getElementById("planetName").innerHTML = planet.name;
         document.getElementById("image").src = planet.image;
         document.getElementById("info").hidden = false;

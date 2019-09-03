@@ -68,7 +68,7 @@ CREATE TABLE Pics(
     Title               Varchar(255)    NOT NULL,
     Beskrivelse         Text,
     Comic               BIT,
-    PRIMARY KEY (ElementId),
+    PRIMARY KEY (ElementId,Title),
     FOREIGN KEY (ElementId) REFERENCES Element(ID) 
         ON DELETE CASCADE 
         ON UPDATE CASCADE

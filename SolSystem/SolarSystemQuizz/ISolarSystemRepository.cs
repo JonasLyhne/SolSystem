@@ -8,6 +8,8 @@ namespace SolarSystemQuizz
 {
     public interface ISolarSystemRepository
     {
+        List<int> GetAllIDs();
+        InformationHolder GetPlanetInfoById(int id);
         Star GetSolarSystem();
         Star GetStar();
         Planet GetPlanetById(int id);
