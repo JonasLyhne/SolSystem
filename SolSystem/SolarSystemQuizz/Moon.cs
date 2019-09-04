@@ -5,6 +5,9 @@ using System.Web;
 
 namespace SolarSystemQuizz
 {
+    /// <summary>
+    /// a element that is orbitiong a planet
+    /// </summary>
     public class Moon : Element, IOrbitingElement
     {
         public int ParentId { get; set; }

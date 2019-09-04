@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace SolarSystemQuizz
 {
+    /// <summary>
+    /// interface of a repository for solarsystem
+    /// </summary>
     public interface ISolarSystemRepository
     {
         List<int> GetAllIDs();

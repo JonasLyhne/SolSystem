@@ -13,7 +13,6 @@ var time2;
 var planetOptions;
 
 var realSpeed = 30;
-let real = true;
 
 //the screen size
 let screenWidth = window.innerWidth;
@@ -21,6 +20,7 @@ let screenHeight = window.innerHeight;
 
 var GetSolarSystemUri = "api/getsolarsystem";
 
+//gets the solarsystem from api
 $(document).ready(function() {
     $.ajax({
         type: "get",
@@ -36,7 +36,6 @@ $(document).ready(function() {
     });
     console.log(mySolarSystem);
 });
-if (real) {
 
     // 1 px = x km
     let ratio = 10000000*2 / ((screenHeight+screenWidth)/2)
@@ -48,7 +47,7 @@ if (real) {
             totalplanets += mySystem.Planets[i].Moons.length;
         }
         planetOptions = new Array(totalplanets);
-
+        //takes the solarsystem and sets it to the option array
         planetOptions[0] = new Planet(mySystem.Diameter,mySystem.Diameter,mySystem.Mass,0,0,0,"#ffffff",mySystem.Name,mySystem.Image);
         let count = 1;
         for(let i = 0; i < mySystem.Planets.length; i++){
@@ -70,6 +69,7 @@ if (real) {
         myArea.start();
     }
     
+    //adds a planet to the option pannel
     function showOptions (planet){
         let ol = document.createElement("ol");
         ol.style.backgroundImage = "url(" + planet.Image + ")";
@@ -80,12 +80,14 @@ if (real) {
         document.getElementById("planetlist").appendChild(ol);
     }
     
+    //adds a planet to the gravity simulator
     function addNewPlanet(){
         let array = myPlanets;
         myPlanets = new Array(array.length+1);
         for(let i = 0; i < array.length; i++){
             myPlanets[i] = array[i];
         }
+        //sets the speed
         let difx;
         let dify;
         if(!speed12){
@@ -98,6 +100,7 @@ if (real) {
         let total = Math.sqrt((difx)**2) + Math.sqrt((dify)**2);
         let dif = [difx/total,dify/total];
 
+            //gives the speed
             if(speed12){
                 let time = time1 - time2;
                 newPlanet.speed[0] =((1000/(time*-1))*scaling*ratio/10)*dif[0];
@@ -107,9 +110,11 @@ if (real) {
                 newPlanet.speed[0] =((1000/(time*-1))*scaling*ratio/10)*dif[0];
                 newPlanet.speed[1] =((1000/(time*-1))*scaling*ratio/10)*dif[1];
             }
+        //addes it to the array
         myPlanets[array.length] = newPlanet;
     }
 
+    //sets down if there is a planet
     function mouseUp(){
         if(newPlanetMade && newPlanet != null){
             addNewPlanet();
@@ -117,6 +122,7 @@ if (real) {
         click(newPlanet);
     }
 
+    //gets the planet
     function click(planet){
         // if(newPlanet != null){
         //     newPlanet.Remove();
@@ -127,6 +133,7 @@ if (real) {
         newPlanet.Name += countsafty;
     }
 
+    //takes updates the planet there about to be put down
     function move (mouse){
         if(newPlanet != null && newPlanetMade == false){
             //console.log(newPlanet.Name + " " + mouse.clientX + " " + mouse.clientY);
@@ -138,6 +145,7 @@ if (real) {
 
     }
 
+    //moves the planet there about to be put down 
     function movePlanet(x,y){
         var tmpPlanet = document.getElementById(newPlanet.Name);
         tmpPlanet.style.marginLeft =  x - 10 + "px";
@@ -156,10 +164,11 @@ if (real) {
         speed12 = !speed12;
 
     }
-    
+    //the canvas
     var myArea = {
         canvas: document.createElement("canvas"),
         start : function() {
+            //sets the tick speed
             this.interval = setInterval(updateArea, 30);
             this.canvas.width = screenWidth;
             this.canvas.height = screenHeight;
@@ -318,4 +327,3 @@ if (real) {
         div.id = planet.Name;
         document.body.insertBefore(div, document.body.childNodes[0]);
     }
-}

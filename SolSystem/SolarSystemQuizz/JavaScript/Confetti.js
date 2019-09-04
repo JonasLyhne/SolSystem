@@ -1,3 +1,4 @@
+    
     // globals
     var bool = false;
     var canvas;

@@ -12,6 +12,10 @@ namespace SolarSystemQuizz.Controllers
     public class PlanetsController : ApiController
     {
         SolarSystemRepository repository = new SolarSystemRepository();
+        /// <summary>
+        /// gets the solarsystem
+        /// </summary>
+        /// <returns>a star with all the planets with its moon that is orbing around it</returns>
         [Route("api/getsolarsystem")]
         [HttpGet]
         public Star GetSolarSystem()
@@ -19,6 +23,10 @@ namespace SolarSystemQuizz.Controllers
             return repository.GetSolarSystem();
         }
 
+        /// <summary>
+        /// gets all the information about all solarsystem objects
+        /// </summary>
+        /// <returns>a array of informationholders foreach solarsystem objects</returns>
         [Route("api/GetInfo")]
         [HttpGet]
         public InformationHolder[] GetInfo()

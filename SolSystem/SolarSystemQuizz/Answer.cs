@@ -5,6 +5,9 @@ using System.Web;
 
 namespace SolarSystemQuizz
 {
+    /// <summary>
+    /// holds a answer, if the is correct, the text/answer and its id
+    /// </summary>
     public class Answer
     {
         public int Id { get; set; }
