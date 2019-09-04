@@ -1,0 +1,131 @@
+body{
+    margin: 0px;
+}
+
+.menuToggleOut{
+  float: right;
+  margin-top: 25%;
+  border: 0px;
+  font-size: 20px;
+  margin-right: 1%;
+  background-color: #00000000;
+  text-shadow: -1px 0 #cccccc, 0 1px #cccccc, 1px 0 #cccccc, 0 -1px #cccccc;
+  z-index: 1000;
+}
+.menuToggleIn{
+  float: right;
+  margin-top: 25%;
+  border: 0px;
+  font-size: 20px;
+  padding-right: 1%;
+  margin-right: 5%;
+  background-color: #00000000;
+  text-shadow: -1px 0 #cccccc, 0 1px #cccccc, 1px 0 #cccccc, 0 -1px #cccccc;
+  z-index: 1000;
+}
+
+
+
+.navbody{
+    width: 5%;
+    height: 100%;
+    margin-right: 0px;
+    margin-left: 95%;
+    position: fixed;
+    background-image: linear-gradient(to right, #44444400, #444444);
+    align-content: center;
+    z-index: 999;
+}
+.navcontent{
+    border-radius: 25px;
+    font-family: "Times New Roman", Times, serif;
+    background: #444444;
+    border: #555555 solid 2px;
+    color: #cccccc;
+    font-size: 15px;
+    margin: 1%;
+    margin-left: -15%;
+    width: 100%;
+    color: #ffeeff;
+    text-align: center;
+    display: inline-block;
+}
+.navcontent:link, .navcontent:visited {
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  .navcontent:hover, .navcontent:active {
+    padding-left: 5%;
+    font-size: 20px;
+    margin-left: -25%;
+    width: auto;
+    max-width: 150%;
+    min-width: 100%;
+    background-image: linear-gradient(-90deg, #44444400, #555555, #555555);
+}
+
+.helperToggleOut{
+  border: 0px;
+  font-size: 20px;
+  background-color: #00000000;
+  text-shadow: -1px 0 #cccccc, 0 1px #cccccc, 1px 0 #cccccc, 0 -1px #cccccc;
+  z-index: 1000;
+  bottom: 1%;
+  position: fixed;
+  margin-left: 49%;
+  transform: rotate(90deg);
+}
+.helperToggleIn{
+  border: 0px;
+  font-size: 20px;
+  background-color: #00000000;
+  text-shadow: -1px 0 #cccccc, 0 1px #cccccc, 1px 0 #cccccc, 0 -1px #cccccc;
+  z-index: 1000;
+  bottom: 10%;
+  position: fixed;
+  margin-left: 49%;
+  transform: rotate(90deg);
+}
+
+.helperbody{
+  width: 100%;
+  height: 5%;
+  position: fixed;
+  bottom: 0;
+  text-align:center;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(180deg, #44444400, #444444,#444444);
+  align-content: center;
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  grid-template-rows: 200%;
+  z-index: 999;
+}
+.ageButton{
+    height: 50%;
+    border-radius: 15px;
+    font-family: "Times New Roman", Times, serif;
+    background-color:#444444;
+    border: #555555 solid 4px;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 9000;
+    width: 75%;
+    text-align: center;
+    display: inline-block;
+    -ms-transform: translate(20%, 0%);
+    transform: translate(20%, 0%);
+}
+  
+  .ageButton:hover, .ageButton:active {
+    padding-left: 5%;
+    font-size: 25px;
+    font-weight: 400;
+    color: #ffffff;
+    width: 100%;
+    background-color: #444444;
+    -ms-transform: translate(0%, 0%);
+    transform: translate(0%, 0%);
+}

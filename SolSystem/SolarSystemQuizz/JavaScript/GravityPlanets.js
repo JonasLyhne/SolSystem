@@ -319,4 +319,3 @@ if (real) {
         document.body.insertBefore(div, document.body.childNodes[0]);
     }
 }
-var planet = new Pl

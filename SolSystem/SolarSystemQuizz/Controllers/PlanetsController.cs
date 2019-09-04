@@ -4,7 +4,6 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using Devart.Common;
 
 namespace SolarSystemQuizz.Controllers
 {
@@ -19,6 +18,20 @@ namespace SolarSystemQuizz.Controllers
         {
             return repository.GetSolarSystem();
         }
+
+        [Route("api/GetInfo")]
+        [HttpGet]
+        public InformationHolder[] GetInfo()
+        {
+            List<int> ids = repository.GetAllIDs();
+            List<InformationHolder> informationHolders = new List<InformationHolder>();
+            for (int i = 0; i < ids.Count; i++)
+            {
+                informationHolders.Add(repository.GetPlanetInfoById(ids[i]));
+            }
+            return informationHolders.ToArray(); ;
+        }
+
 
     }
 }

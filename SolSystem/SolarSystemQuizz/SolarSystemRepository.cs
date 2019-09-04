@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using Devart.Data.MySql;
+using MySql.Data.MySqlClient;
 
 namespace SolarSystemQuizz
 {
@@ -24,6 +24,67 @@ namespace SolarSystemQuizz
             }
 
             return star;
+        }
+
+        public List<int> GetAllIDs()
+        {
+            List<int> ids = new List<int>();
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            using (connection)
+            {
+                MySqlCommand command = new MySqlCommand(
+                    "SELECT ID FROM element", connection);
+                connection.Open();
+                MySqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        ids.Add(Convert.ToInt32(reader["ID"]));
+                    }
+                }
+                reader.Close();
+            }
+            return ids;
+        }
+
+        public InformationHolder GetPlanetInfoById(int id)
+        {
+            string lastPlanetName = "";
+            string currentPlanetName = "";
+            InformationHolder informationHolder = new InformationHolder();
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            using (connection)
+            {
+                MySqlCommand command = new MySqlCommand(
+                    "SELECT * FROM ElementInfo ei JOIN Element e ON ei.ElementId = e.ID where ei.ElementId = @Id", connection);
+                command.Parameters.AddWithValue("@Id", id);
+                connection.Open();
+                MySqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    List<Information> information = new List<Information>();
+                    while (reader.Read())
+                    {
+                        currentPlanetName = reader["Name"].ToString();
+                        if (lastPlanetName == currentPlanetName)
+                        {
+                            information.Add(new Information(Convert.ToInt32(reader["ClassTier"]), reader["Title"].ToString(), reader["Info"].ToString()));
+                        }
+                        else
+                        {
+                            informationHolder = new InformationHolder();
+                            informationHolder.Name = currentPlanetName;
+                            informationHolder.Id = Convert.ToInt32(reader["Id"]);
+                            information.Add(new Information(Convert.ToInt32(reader["ClassTier"]), reader["Title"].ToString(), reader["Info"].ToString()));
+                        }
+                    }
+                    informationHolder.Information = information.ToArray();
+                }
+                reader.Close();
+            }
+
+            return informationHolder;
         }
 
         public Star GetStar()
@@ -99,14 +160,15 @@ namespace SolarSystemQuizz
             return planet;
         }
 
-        public List<Planet> GetAllPlanets()
+        public List<Planet> GetAllPlanets(bool getComicPictures = false)
         {
             List<Planet> planets = new List<Planet>();
             MySqlConnection connection = new MySqlConnection(connectionString);
             using (connection)
             {
                 MySqlCommand command = new MySqlCommand(
-                    "SELECT * FROM element e JOIN planet p ON p.ElementId = e.ID JOIN orbitingelement oe ON oe.ElementId = p.ElementId JOIN Pics pi ON pi.ElementId = e.ID", connection);
+                    "SELECT * FROM element e JOIN planet p ON p.ElementId = e.ID JOIN orbitingelement oe ON oe.ElementId = p.ElementId JOIN Pics pi ON pi.ElementId = e.ID WHERE pi.Comic = @GetComic", connection);
+                command.Parameters.AddWithValue("@GetComic", getComicPictures);
                 connection.Open();
                 MySqlDataReader reader = command.ExecuteReader();
                 if (reader.HasRows)
@@ -175,15 +237,16 @@ namespace SolarSystemQuizz
             return moon;
         }
 
-        public List<Moon> GetMoonsByParentId(int parentId)
+        public List<Moon> GetMoonsByParentId(int parentId, bool getComic = false)
         {
             List<Moon> moons = new List<Moon>();
             MySqlConnection connection = new MySqlConnection(connectionString);
             using (connection)
             {
                 MySqlCommand command = new MySqlCommand(
-                    "SELECT * FROM element e JOIN moons m ON m.ElementId = e.ID JOIN orbitingelement oe ON oe.ElementId = m.ElementId JOIN Pics p ON p.ElementId = e.ID WHERE m.Parent = @ParentId;", connection);
+                    "SELECT * FROM element e JOIN moons m ON m.ElementId = e.ID JOIN orbitingelement oe ON oe.ElementId = m.ElementId JOIN Pics p ON p.ElementId = e.ID WHERE m.Parent = @ParentId AND p.Comic = @GetComic;", connection);
                 command.Parameters.AddWithValue("@ParentId", parentId);
+                command.Parameters.AddWithValue("@GetComic", parentId);
                 connection.Open();
                 MySqlDataReader reader = command.ExecuteReader();
                 if (reader.HasRows)
