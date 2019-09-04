@@ -14,6 +14,7 @@ var planetOptions;
 
 var realSpeed = 30;
 let real = true;
+
 //the screen size
 let screenWidth = window.innerWidth;
 let screenHeight = window.innerHeight;
@@ -114,7 +115,6 @@ if (real) {
             addNewPlanet();
         }
         click(newPlanet);
-        newPlanetMade = false;
     }
 
     function click(planet){

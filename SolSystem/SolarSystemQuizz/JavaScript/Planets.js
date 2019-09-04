@@ -53,6 +53,7 @@ $(document).ready(function() {
     let size = 55;
     let fastestRevolution = 5067032;
     let planetSize;
+    let distandJump = screenHeight/2/11;
     function startPlanets(sun) {
         //set(1);
         mySun = new Sun(sun.Name,sun.Image,new Array(sun.Planets.length));
@@ -116,10 +117,11 @@ $(document).ready(function() {
         console.log(classTier);
         let infoholder = SolarSystemInfo[SolarSystemInfoNameIdlist.indexOf(planet.name)]
         let infoContent = document.getElementById("infoContent");
+        infoContent.innerHTML = '';
         for(let i = 0; i < infoholder.Information.length; i++){
             if(infoholder.Information[i].ClassTier == get().classTier){
                 let paragraph = document.createElement("p");
-                paragraph.className = "title";
+                paragraph.className = "text";
                 paragraph.innerHTML = ("<b>"+ infoholder.Information[i].Title+":</b> "+infoholder.Information[i].Info);
                 infoContent.append(paragraph);
             }
@@ -195,7 +197,7 @@ class Planet{
         this.name = name;
         this.image = image;
         this.childs = new Array(childs);
-        nextDistand += 55;  
+        nextDistand += distandJump;  
     }
     Update(parentXY) {
         this.x = (this.distance * Math.cos(this.angle*(Math.PI/180))) + parentXY[0];

@@ -17,7 +17,7 @@ function ShowAgeHelper(){
 function chooseAge(ageTier){
     set({classTier: ageTier, date: Date.now()})
     hideHelper();
-    Interval = setInterval(ShowAgeHelper,10000);
+    Interval = setInterval(ShowAgeHelper,30000);
 }
 
 
@@ -58,7 +58,7 @@ function Make(){
     MakeNavBar();
     if(get() != "{}"){
         let date = new Date(get().date);
-        if(date.setMilliseconds(date.getMilliseconds()+10000) > Date.now()){
+        if(date.setMilliseconds(date.getMilliseconds()+30000) > Date.now()){
             let extratime = Math.abs(date.getTime() - new Date(Date.now()).getTime());
             Interval = setInterval(ShowAgeHelper,extratime);
             hideHelper();
