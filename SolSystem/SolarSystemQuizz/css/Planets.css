@@ -85,6 +85,14 @@
     margin-bottom: 1%;
 }
 
+.text{
+    margin-right: 10px;
+    font-family: sans-serif;
+    color: snow;
+    text-align: center;
+    text-indent: 10px;
+}
+
 .title{
     margin-right: 10px;
     font-family: sans-serif;
