@@ -5,6 +5,9 @@ using System.Web;
 
 namespace SolarSystemQuizz
 {
+    /// <summary>
+    /// holds a set of information of a object in the solarsystem
+    /// </summary>
     public class InformationHolder
     {
         public string Name { get; set; }

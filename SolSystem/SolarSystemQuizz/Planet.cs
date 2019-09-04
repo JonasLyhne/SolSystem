@@ -5,6 +5,10 @@ using System.Web;
 
 namespace SolarSystemQuizz
 {
+    /// <summary>
+    /// a planet that is orbiting a star
+    /// holds a list of moons that is orbiting around it 
+    /// </summary>
     public class Planet : Element, IOrbitingElement
     {
         public int StarId { get; set; }

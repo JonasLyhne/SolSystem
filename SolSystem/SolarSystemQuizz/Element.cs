@@ -6,6 +6,9 @@ using System.Web;
 
 namespace SolarSystemQuizz
 {
+    /// <summary>
+    /// base class for all objects in solarsystem
+    /// </summary>
     public abstract class Element
     {
         public int Id { get; set; }
