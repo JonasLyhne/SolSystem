@@ -6,11 +6,12 @@ using MySql.Data.MySqlClient;
 
 namespace SolarSystemQuizz
 {
+    // Repository used for getting Solarsystem elements from the database.
     public class SolarSystemRepository : ISolarSystemRepository
     {
         private static string connectionString = "User Id=root;Host=localhost;Database=solarsystem";
         
-
+        // Gets the solarsystem. A solar System in this context a solarsystem is an Star with a list of planets with a list of moons.
         public Star GetSolarSystem()
         {
             Star star = GetStar();
@@ -26,6 +27,7 @@ namespace SolarSystemQuizz
             return star;
         }
 
+        // Gets all element id's
         public List<int> GetAllIDs()
         {
             List<int> ids = new List<int>();
@@ -47,7 +49,7 @@ namespace SolarSystemQuizz
             }
             return ids;
         }
-
+        // Gets planet info by planet id
         public InformationHolder GetPlanetInfoById(int id)
         {
             string lastPlanetName = "";
@@ -87,6 +89,7 @@ namespace SolarSystemQuizz
             return informationHolder;
         }
 
+        // Gets the star.
         public Star GetStar()
         {
             Star star = new Star();
@@ -122,6 +125,7 @@ namespace SolarSystemQuizz
             return star;
         }
 
+        // Gets Planet by id.
         public Planet GetPlanetById(int id)
         {
             Planet planet = new Planet();
@@ -160,6 +164,7 @@ namespace SolarSystemQuizz
             return planet;
         }
 
+        // Gets All the planets.
         public List<Planet> GetAllPlanets(bool getComicPictures = false)
         {
             List<Planet> planets = new List<Planet>();
@@ -200,6 +205,7 @@ namespace SolarSystemQuizz
             return planets;
         }
 
+        // Gets Moon by Id
         public Moon GetMoonById(int id)
         {
             Moon moon = new Moon();
@@ -237,6 +243,7 @@ namespace SolarSystemQuizz
             return moon;
         }
 
+        // Gets moons by parent id. Parent is the planet the moon is orbiting.
         public List<Moon> GetMoonsByParentId(int parentId, bool getComic = false)
         {
             List<Moon> moons = new List<Moon>();

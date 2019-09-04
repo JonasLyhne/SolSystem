@@ -1,18 +1,27 @@
 
 body {
-    background-color: #fff;
+    overflow: hidden;
+    background-color: black;
+    background-image: url(https://ak9.picdn.net/shutterstock/videos/14503699/thumb/1.jpg);
+    background-size: auto;
+    padding: 0px;
+    margin: 0px;
 }
 
 
 #QuestionContainer {
-    background-color: red;
+    /* background-color: red; */
     height: 40%;
     width: 40%;
     overflow: hidden;
-    margin: 1% 1%;
+    margin: 11% 1%;
     padding: 1% 1%;
 }
-
+.boxes{
+    margin: 10%, 0%, 0%, 0%;
+    background-color:dimgray;
+    border-color: black;
+}
 
 .questtext {
     resize: none;
@@ -20,4 +29,7 @@ body {
 }
 .imgfit{
     object-fit: fill;
+}
+.card-body{
+    border: 0;
 }
