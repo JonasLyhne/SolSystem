@@ -20,16 +20,28 @@ body {
 .boxes{
     margin: 10%, 0%, 0%, 0%;
     background-color:dimgray;
-    border-color: black;
 }
-
+.question-body{
+    background-color: darkgray;
+}
+.answer-text-area{
+    background-color: darkgray;
+    resize: none;
+    padding: .375rem .75rem;
+    border-radius: .25rem
+}
 .questtext {
     resize: none;
     overflow: hidden;
 }
+ .next-btn{
+    margin-top: 5%;
+    padding: 8% 2%;
+} 
 .imgfit{
     object-fit: fill;
 }
-.card-body{
-    border: 0;
+
+.h5{
+    color: Black;
 }
