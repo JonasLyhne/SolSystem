@@ -268,3 +268,17 @@ INSERT INTO ElementInfo (ElementId,ClassTier,Title,Info)VALUES((SELECT ID FROM E
 INSERT INTO ElementInfo (ElementId,ClassTier,Title,Info)VALUES((SELECT ID FROM Element where Name = 'Pluto'),2,'Dag','6dage 9timer.');
 INSERT INTO ElementInfo (ElementId,ClassTier,Title,Info)VALUES((SELECT ID FROM Element where Name = 'Pluto'),2,'År','248år 31dage 7timer 20minutter.');
 INSERT INTO ElementInfo (ElementId,ClassTier,Title,Info)VALUES((SELECT ID FROM Element where Name = 'Pluto'),2,'TyndeKraft','0.04g.');
+
+/* Questions */
+INSERT INTO difficulty (Difficulty,Description) VALUES (1,"Egnet til 0-1 Klasse");
+INSERT INTO difficulty (Difficulty,Description) VALUES (2,"Egnet til 2-3 Klasse");
+INSERT INTO difficulty (Difficulty,Description) VALUES (3,"Egnet til 4-5 Klasse");
+INSERT INTO questions(Content) VALUES("Kan man se den kinesiske mur fra rummet?");
+INSERT INTO answerchoise(Answer, IsCorrect) VALUES("Nej, det er en myte. Månen ligger alt for langt væk", 1);
+INSERT INTO answerchoise(Answer, IsCorrect) VALUES("Ja, den er jo MEGA stor, den mur der.", 0);
+INSERT INTO answerchoise(Answer, IsCorrect) VALUES("Ingen ved det helt præcist. Forskerne er uenige.", 0);
+INSERT INTO answerchoise(Answer, IsCorrect) VALUES("Kommer an på hvor i rummet man er.", 0);
+INSERT INTO quesanswer(QuesID, AnswerID) VALUES (1,1);
+INSERT INTO quesanswer(QuesID, AnswerID) VALUES (1,2);
+INSERT INTO quesanswer(QuesID, AnswerID) VALUES (1,3);
+INSERT INTO quesanswer(QuesID, AnswerID) VALUES (1,4);

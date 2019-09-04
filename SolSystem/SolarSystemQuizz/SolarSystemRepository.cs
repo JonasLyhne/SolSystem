@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using Devart.Data.MySql;
+using MySql.Data.MySqlClient;
 
 namespace SolarSystemQuizz
 {
@@ -160,14 +160,15 @@ namespace SolarSystemQuizz
             return planet;
         }
 
-        public List<Planet> GetAllPlanets()
+        public List<Planet> GetAllPlanets(bool getComicPictures = false)
         {
             List<Planet> planets = new List<Planet>();
             MySqlConnection connection = new MySqlConnection(connectionString);
             using (connection)
             {
                 MySqlCommand command = new MySqlCommand(
-                    "SELECT * FROM element e JOIN planet p ON p.ElementId = e.ID JOIN orbitingelement oe ON oe.ElementId = p.ElementId JOIN Pics pi ON pi.ElementId = e.ID", connection);
+                    "SELECT * FROM element e JOIN planet p ON p.ElementId = e.ID JOIN orbitingelement oe ON oe.ElementId = p.ElementId JOIN Pics pi ON pi.ElementId = e.ID WHERE pi.Comic = @GetComic", connection);
+                command.Parameters.AddWithValue("@GetComic", getComicPictures);
                 connection.Open();
                 MySqlDataReader reader = command.ExecuteReader();
                 if (reader.HasRows)
@@ -236,15 +237,16 @@ namespace SolarSystemQuizz
             return moon;
         }
 
-        public List<Moon> GetMoonsByParentId(int parentId)
+        public List<Moon> GetMoonsByParentId(int parentId, bool getComic = false)
         {
             List<Moon> moons = new List<Moon>();
             MySqlConnection connection = new MySqlConnection(connectionString);
             using (connection)
             {
                 MySqlCommand command = new MySqlCommand(
-                    "SELECT * FROM element e JOIN moons m ON m.ElementId = e.ID JOIN orbitingelement oe ON oe.ElementId = m.ElementId JOIN Pics p ON p.ElementId = e.ID WHERE m.Parent = @ParentId;", connection);
+                    "SELECT * FROM element e JOIN moons m ON m.ElementId = e.ID JOIN orbitingelement oe ON oe.ElementId = m.ElementId JOIN Pics p ON p.ElementId = e.ID WHERE m.Parent = @ParentId AND p.Comic = @GetComic;", connection);
                 command.Parameters.AddWithValue("@ParentId", parentId);
+                command.Parameters.AddWithValue("@GetComic", parentId);
                 connection.Open();
                 MySqlDataReader reader = command.ExecuteReader();
                 if (reader.HasRows)

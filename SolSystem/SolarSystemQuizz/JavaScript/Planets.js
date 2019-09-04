@@ -1,5 +1,4 @@
-﻿var 
-//a array of the planets
+﻿//a array of the planets
 var mySun;
 var GetSolarSystemUri = "api/getsolarsystem";
 var GetSolarSystemInfoUri = "api/GetInfo";
@@ -47,7 +46,7 @@ $(document).ready(function() {
             alert(err.d);
         }
     });
-    console.log(mySolarSystem);
+    //console.log(mySolarSystem);
 });
 
     let nextDistand = 0;
@@ -115,11 +114,12 @@ $(document).ready(function() {
     function showInfo(planet){;
         let classTier = get();
         console.log(classTier);
-        let infoholder = SolarSystemInfoName[SolarSystemInfoNameIdlist.indexOf(planet.name)]
+        let infoholder = SolarSystemInfo[SolarSystemInfoNameIdlist.indexOf(planet.name)]
         let infoContent = document.getElementById("infoContent");
         for(let i = 0; i < infoholder.Information.length; i++){
             if(infoholder.Information[i].ClassTier == get().classTier){
                 let paragraph = document.createElement("p");
+                paragraph.className = "title";
                 paragraph.innerHTML = ("<b>"+ infoholder.Information[i].Title+":</b> "+infoholder.Information[i].Info);
                 infoContent.append(paragraph);
             }

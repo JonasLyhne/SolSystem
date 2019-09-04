@@ -13,8 +13,8 @@ namespace SolarSystemQuizz
         Star GetSolarSystem();
         Star GetStar();
         Planet GetPlanetById(int id);
-        List<Planet> GetAllPlanets();
+        List<Planet> GetAllPlanets(bool getComicPictures = false);
         Moon GetMoonById(int ud);
-        List<Moon> GetMoonsByParentId(int parentId);
+        List<Moon> GetMoonsByParentId(int parentId, bool getComic = false);
     }
 }
