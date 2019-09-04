@@ -39,6 +39,7 @@ var RenderQuestion = function(Question){
 function CheckForAnswer(answer) {
     if(Answers[answer].IsCorrect){
         document.getElementById("btnAnswer"+answer).className += " btn-success"
+        RestartConfetti();
     }else if (!Answers[answer].IsCorrect){
         document.getElementById("btnAnswer"+answer).className += " btn-danger"
     }

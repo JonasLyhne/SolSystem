@@ -10,16 +10,20 @@
 
     <link rel="stylesheet" href="css/Questions.css" />
     <link rel="stylesheet" href="css/Default.css"/>
+    <link rel="stylesheet" href="css/Confetti.css"/>
     <script src="JavaScript/Default.js"></script>
     <script src="JavaScript/jquery-3.4.1.js"></script>
     <script src="JavaScript/Bootstrap/bootstrap.min.js"></script>
     <script src="JavaScript/Quizz.js"></script>
+    <script src="JavaScript/Confetti.js"></script>
     <link rel="stylesheet" href="css/Bootstrap/bootstrap.min.css"/>
     <meta charset="UTF-8">
 
 </head>
 
 <body onload="Make()">
+      <canvas id="canvas" ></canvas>
+
     <div class="container">
         <div class="row">
             <div id="QuestionContainer" class="col-lg-4">
@@ -55,7 +59,7 @@
                                         </textarea>
                                     <hr>
 
-                                    <button id="btnAnswer0" class="btn btn-block btn-primary text-uppercase " onclick="CheckForAnswer(0)">Svar</button>
+                                    <button id="btnAnswer0" class="btn btn-block btn-primary text-uppercase HighZ-index" onclick="CheckForAnswer(0)">Svar</button>
                                 </div>
                             </div>
 
@@ -70,7 +74,7 @@
                                         </textarea>
                                     <hr>
 
-                                    <button id="btnAnswer1" class="btn btn-block btn-primary text-uppercase " onclick="CheckForAnswer(1)">Svar</button>
+                                    <button id="btnAnswer1" class="btn btn-block btn-primary text-uppercase HighZ-index" onclick="CheckForAnswer(1)">Svar</button>
                                 </div>
                             </div>
 
@@ -87,7 +91,7 @@
                                         </textarea>
                                     <hr>
 
-                                    <button id="btnAnswer2"  class="btn btn-block btn-primary text-uppercase " onclick="CheckForAnswer(2)">Svar</button>
+                                    <button id="btnAnswer2"  class="btn btn-block btn-primary text-uppercase HighZ-index" onclick="CheckForAnswer(2)">Svar</button>
                                 </div>
                             </div>
 
@@ -101,14 +105,14 @@
                                         </textarea>
                                     <hr>
 
-                                    <button id="btnAnswer3" class="btn btn-block btn-primary text-uppercase " onclick="CheckForAnswer(3)">Svar</button>
+                                    <button id="btnAnswer3" class="btn btn-block btn-primary text-uppercase HighZ-index" onclick="CheckForAnswer(3)">Svar</button>
                                 </div>
                             </div>
 
                         </div>
                     </div>
                 </div>
-                <button id="nextQuestion" class="btn btn-block btn-primary text-uppercase " hidden="true" onclick="NextQuestion()">Næste -></button>
+                <button id="nextQuestion" class="btn btn-block btn-primary text-uppercase HighZ-index" hidden="true" onclick="NextQuestion()">Næste -></button>
             </div>
         </div>
 
