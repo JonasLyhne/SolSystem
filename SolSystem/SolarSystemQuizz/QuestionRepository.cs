@@ -6,7 +6,8 @@ using MySql.Data.MySqlClient;
 
 namespace SolarSystemQuizz
 {
-    public class QuestionRepository
+    // Repository used for getting questions from the database
+    public class QuestionRepository : IQuestionRepository
     {
         private static string connectionString = "User Id=root;Host=localhost;Database=solarsystem";
         public List<Question> GetQuestions(int difficultyLevel)
@@ -19,7 +20,8 @@ namespace SolarSystemQuizz
             return questions;
         }
 
-        private List<Question> QueryQuestions(int difficulty)
+        // Querys the questions from the database.
+        public List<Question> QueryQuestions(int difficulty)
         {
             List<Question> questions = new List<Question>();
             MySqlConnection connection = new MySqlConnection(connectionString);
@@ -46,7 +48,8 @@ namespace SolarSystemQuizz
             return questions;
         }
 
-        private List<Answer> GetAnswers(int questionId)
+        // Gets the answers for the questions.
+        public List<Answer> GetAnswers(int questionId)
         {
             List<Answer> answers = new List<Answer>();
             MySqlConnection connection = new MySqlConnection(connectionString);

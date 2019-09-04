@@ -18,6 +18,5 @@ namespace SolarSystemQuizz
         public decimal RotationPeriod { get; set; }
         public bool RingSystem { get; set; }
         public string Image { get; set; }
-
     }
 }

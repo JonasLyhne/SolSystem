@@ -159,6 +159,7 @@
     <Compile Include="InformationHolder.cs" />
     <Compile Include="IOrbitingElement.cs" />
     <Compile Include="IPicture.cs" />
+    <Compile Include="IQuestionRepository.cs" />
     <Compile Include="ISolarSystemRepository.cs" />
     <Compile Include="Moon.cs" />
     <Compile Include="Controllers\PlanetsController.cs" />

@@ -1,23 +1,47 @@
 
 body {
-    background-color: #fff;
+    overflow: hidden;
+    background-color: black;
+    background-image: url(https://ak9.picdn.net/shutterstock/videos/14503699/thumb/1.jpg);
+    background-size: auto;
+    padding: 0px;
+    margin: 0px;
 }
 
 
 #QuestionContainer {
-    background-color: red;
+    /* background-color: red; */
     height: 40%;
     width: 40%;
     overflow: hidden;
-    margin: 1% 1%;
+    margin: 11% 1%;
     padding: 1% 1%;
 }
-
-
+.boxes{
+    margin: 10%, 0%, 0%, 0%;
+    background-color:dimgray;
+}
+.question-body{
+    background-color: darkgray;
+}
+.answer-text-area{
+    background-color: darkgray;
+    resize: none;
+    padding: .375rem .75rem;
+    border-radius: .25rem
+}
 .questtext {
     resize: none;
     overflow: hidden;
 }
+ .next-btn{
+    margin-top: 5%;
+    padding: 8% 2%;
+} 
 .imgfit{
     object-fit: fill;
+}
+
+.h5{
+    color: Black;
 }

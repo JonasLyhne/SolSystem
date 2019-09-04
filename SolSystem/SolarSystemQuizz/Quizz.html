@@ -7,7 +7,7 @@
 
     <title>Solsystem</title>
 
-
+    <link rel="stylesheet" href="css/Bootstrap/bootstrap.min.css"/>
     <link rel="stylesheet" href="css/Questions.css" />
     <link rel="stylesheet" href="css/Default.css"/>
     <link rel="stylesheet" href="css/Confetti.css"/>
@@ -15,8 +15,10 @@
     <script src="JavaScript/jquery-3.4.1.js"></script>
     <script src="JavaScript/Bootstrap/bootstrap.min.js"></script>
     <script src="JavaScript/Quizz.js"></script>
+
     <script src="JavaScript/Confetti.js"></script>
     <link rel="stylesheet" href="css/Bootstrap/bootstrap.min.css"/>
+
     <meta charset="UTF-8">
 
 </head>
@@ -30,7 +32,7 @@
                 <div class="row">
                     <div class="col-md-12 ">
                         <div class="card mb-12 mb-lg-0">
-                            <div class="card-body">
+                            <div class="card-body question-body">
                                 <h5 class="card-title text-muted text-uppercase text-center">Spørgsmål:</h5>
                                 <div id="imageChanger">
                                     <textarea id="QuestionCon" readonly rows="8" cols="50"
@@ -39,10 +41,9 @@
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
+                <button id="nextQuestion" class="btn btn-block btn-primary text-uppercase next-btn " hidden="true" onclick="NextQuestion()">Næste -></button>
             </div>
 
             <div class="" class="col-md-6 rounded">
@@ -50,11 +51,11 @@
 
                 <div class="container">
                     <div class="row">
-                        <div id="AnswerContainer0" class="col-md-6 ">
+                        <div id="AnswerContainer0" class="col-md-6 mt-2">
                             <div class="card mb-4 mb-lg-0">
-                                <div class="card-body">
+                                <div class="card-body boxes ">
                                     <h5 class="card-title text-muted text-uppercase text-center">A</h5>
-                                    <textarea id="Answer0" readonly rows="5" cols="20"
+                                    <textarea id="Answer0" class="answer-text-area" readonly rows="5" cols="20"
                                         class="questtext text-center md-textarea form-control ">Månen er meget stor og lavet af ost
                                         </textarea>
                                     <hr>
@@ -65,11 +66,11 @@
 
 
                         </div>
-                        <div id="AnswerContainer1" class="col-md-6 ">
+                        <div id="AnswerContainer1" class="col-md-6 mt-2">
                             <div class="card mb-4 mb-lg-0">
-                                <div class="card-body">
+                                <div class="card-body boxes">
                                     <h5 class="card-title text-muted text-uppercase text-center">B</h5>
-                                    <textarea id="Answer1" readonly rows="5" cols="20"
+                                    <textarea id="Answer1" class="answer-text-area" readonly rows="5" cols="20"
                                         class="questtext text-center md-textarea form-control ">
                                         </textarea>
                                     <hr>
@@ -82,11 +83,11 @@
                     </div>
 
                     <div class="row">
-                        <div id="AnswerContainer2" class="col-md-6 ">
+                        <div id="AnswerContainer2" class="col-md-6 mt-2">
                             <div class="card mb-4 mb-lg-0">
-                                <div class="card-body">
+                                <div class="card-body boxes">
                                     <h5 class="card-title text-muted text-uppercase text-center">C</h5>
-                                    <textarea id="Answer2" readonly rows="5" cols="20"
+                                    <textarea id="Answer2" class="answer-text-area" readonly rows="5" cols="20"
                                         class="questtext text-center md-textarea form-control ">i got the plug on wahaka, they are gonna find you like baka... wakka wakka
                                         </textarea>
                                     <hr>
@@ -96,11 +97,11 @@
                             </div>
 
                         </div>
-                        <div id="AnswerContainer3" class="col-md-6 ">
+                        <div id="AnswerContainer3" class="col-md-6 mt-2">
                             <div class="card mb-4 mb-lg-0">
-                                <div class="card-body">
+                                <div class="card-body boxes">
                                     <h5 class="card-title text-muted text-uppercase text-center">D</h5>
-                                    <textarea id="Answer3" readonly rows="5" cols="20"
+                                    <textarea id="Answer3" class="answer-text-area" readonly rows="5" cols="20"
                                         class="questtext text-center md-textarea form-control ">i got the plug on wahaka
                                         </textarea>
                                     <hr>
@@ -112,7 +113,9 @@
                         </div>
                     </div>
                 </div>
+
                 <button id="nextQuestion" class="btn btn-block btn-primary text-uppercase HighZ-index" hidden="true" onclick="NextQuestion()">Næste -></button>
+
             </div>
         </div>
 
