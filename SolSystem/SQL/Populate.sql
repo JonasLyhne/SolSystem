@@ -269,6 +269,7 @@ INSERT INTO ElementInfo (ElementId,ClassTier,Title,Info)VALUES((SELECT ID FROM E
 INSERT INTO ElementInfo (ElementId,ClassTier,Title,Info)VALUES((SELECT ID FROM Element where Name = 'Pluto'),2,'År','248år 31dage 7timer 20minutter.');
 INSERT INTO ElementInfo (ElementId,ClassTier,Title,Info)VALUES((SELECT ID FROM Element where Name = 'Pluto'),2,'TyndeKraft','0.04g.');
 
+
 /* Questions */
 INSERT INTO difficulty (Difficulty,Description) VALUES (1,"Egnet til 0-1 Klasse");
 INSERT INTO difficulty (Difficulty,Description) VALUES (2,"Egnet til 2-3 Klasse");
@@ -282,3 +283,4 @@ INSERT INTO quesanswer(QuesID, AnswerID) VALUES (1,1);
 INSERT INTO quesanswer(QuesID, AnswerID) VALUES (1,2);
 INSERT INTO quesanswer(QuesID, AnswerID) VALUES (1,3);
 INSERT INTO quesanswer(QuesID, AnswerID) VALUES (1,4);
+

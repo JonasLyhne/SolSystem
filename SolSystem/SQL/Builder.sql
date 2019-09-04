@@ -85,6 +85,7 @@ CREATE TABLE ElementInfo(
         ON UPDATE CASCADE
 );
 
+
 CREATE TABLE Difficulty(
     DifficultyId        INT             NOT NULL    AUTO_INCREMENT,
     Difficulty          INT             NOT NULL,
@@ -113,5 +114,6 @@ CREATE TABLE AnswerChoise(
 );
 
 ALTER TABLE Questions ADD FOREIGN KEY (DiffID) REFERENCES Difficulty(DifficultyId);
+
 ALTER TABLE QuesAnswer ADD FOREIGN KEY (QuesID) REFERENCES Questions(QuestionID), 
 ADD FOREIGN KEY (AnswerID) REFERENCES AnswerChoise(AnswerID);
