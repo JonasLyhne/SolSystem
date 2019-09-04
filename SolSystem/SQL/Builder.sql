@@ -102,7 +102,7 @@ CREATE TABLE Questions(
 
 CREATE TABLE QuesAnswer(
     QuesID              INT             NOT NULL,
-    AnswerID            INT             NOT NULL, 
+    AnswerID            INT             NOT NULL    AUTO_INCREMENT, 
     PRIMARY KEY(QuesID, AnswerID)
 );
 
@@ -114,6 +114,5 @@ CREATE TABLE AnswerChoise(
 );
 
 ALTER TABLE Questions ADD FOREIGN KEY (DiffID) REFERENCES Difficulty(DifficultyId);
-
 ALTER TABLE QuesAnswer ADD FOREIGN KEY (QuesID) REFERENCES Questions(QuestionID), 
 ADD FOREIGN KEY (AnswerID) REFERENCES AnswerChoise(AnswerID);

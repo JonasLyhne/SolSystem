@@ -111,17 +111,17 @@ function MakeNavBar(){
     container.append(navbody);
 
     let side = document.createElement("a");
-    side.href = "index.html"
+    side.href = "index.html";
     side.innerHTML = "solsystemet";
     side.className = "navcontent";
     navbody.append(side);
     side = document.createElement("a");
-    side.href = "question.html"
+    side.href = "Quizz.html";
     side.innerHTML = "Quiz";
     side.className = "navcontent";
     navbody.append(side);
     side = document.createElement("a");
-    side.href = "Information.html"
+    side.href = "Information.html";
     side.innerHTML = "Information";
     side.className = "navcontent";
     navbody.append(side);

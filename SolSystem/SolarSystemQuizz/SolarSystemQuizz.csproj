@@ -145,7 +145,7 @@
     <Content Include="Pics\solarsystem.jpg" />
     <Content Include="Pics\spacetravel.jpg" />
     <Content Include="Pics\stars.jpg" />
-    <Content Include="question.html" />
+    <Content Include="Quizz.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

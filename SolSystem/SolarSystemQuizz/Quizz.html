@@ -33,10 +33,6 @@
                                         class="questtext text-center md-textarea form-control">
                                 </textarea>
                                 </div>
-
-                                <hr>
-
-                                <a href="#" class="btn btn-block btn-primary text-uppercase">Button</a>
                             </div>
                         </div>
 
@@ -59,7 +55,7 @@
                                         </textarea>
                                     <hr>
 
-                                    <a href="#" class="btn btn-block btn-primary text-uppercase">Button</a>
+                                    <button id="btnAnswer0" class="btn btn-block btn-primary text-uppercase " onclick="CheckForAnswer(0)">Svar</button>
                                 </div>
                             </div>
 
@@ -69,12 +65,12 @@
                             <div class="card mb-4 mb-lg-0">
                                 <div class="card-body">
                                     <h5 class="card-title text-muted text-uppercase text-center">B</h5>
-                                    <textarea id="Answer1 readonly rows="5" cols="20"
+                                    <textarea id="Answer1" readonly rows="5" cols="20"
                                         class="questtext text-center md-textarea form-control ">
                                         </textarea>
                                     <hr>
 
-                                    <a href="#" class="btn btn-block btn-primary text-uppercase">Button</a>
+                                    <button id="btnAnswer1" class="btn btn-block btn-primary text-uppercase " onclick="CheckForAnswer(1)">Svar</button>
                                 </div>
                             </div>
 
@@ -91,7 +87,7 @@
                                         </textarea>
                                     <hr>
 
-                                    <a href="#" class="btn btn-block btn-primary text-uppercase">Button</a>
+                                    <button id="btnAnswer2"  class="btn btn-block btn-primary text-uppercase " onclick="CheckForAnswer(2)">Svar</button>
                                 </div>
                             </div>
 
@@ -105,76 +101,19 @@
                                         </textarea>
                                     <hr>
 
-                                    <a href="#" class="btn btn-block btn-primary text-uppercase">Button</a>
+                                    <button id="btnAnswer3" class="btn btn-block btn-primary text-uppercase " onclick="CheckForAnswer(3)">Svar</button>
                                 </div>
                             </div>
 
                         </div>
                     </div>
                 </div>
+                <button id="nextQuestion" class="btn btn-block btn-primary text-uppercase " hidden="true" onclick="NextQuestion()">Næste -></button>
             </div>
         </div>
 
 
     </div>
-
-    <script>
-        function hideAnswers() {
-            document.getElementById("Answer2").style.display = "none";
-            document.getElementById("Answer3").style.display = "none";
-
-        }
-    </script>
-    <script>
-        function showAnswers() {
-            document.getElementById("Answer3").style.display = "block";
-            document.getElementById("Answer2").style.display = "block";
-
-        }
-    </script>
-                 <script>
-                    function toggleImage() {
-                        var img = document.createElement("img");
-                        img.src = "http://www.google.com/intl/en_com/images/logo_plain.png";
-                        var tbox = document.getElementById("QuestionCon");
-                        if(tbox.style.display = "block"){}
-
-                    }
-                </script>
-
-    <!-- <script>
-                    function myFunction() {
-
-
-                        var img = document.createElement("img");
-                        img.src = "http://www.google.com/intl/en_com/images/logo_plain.png";
-                        var tbox = document.getElementById("QuestionCon");
-
-                        if (tbox.style.display === "none") {
-                            tbox.style.display = "block";
-                            var src = document.getElementById("imageChanger");
-                            src.appendChild(img);
-                        } else {
-                            tbox.style.display = "none";
-                            src.hidden(img);
-                        }
-
-                    }
-                    if (document.getElementById("MyId").className == "hide")
-                        document.getElementById("MyId").className = "show";
-                    else
-                        document.getElementById("MyId").className = "hide";
-                </script> -->
-
-
-
-    <button onclick="hideAnswers()">Click Me</button>
-    <button onclick="showAnswers()">Click Me2</button>
-    <button onclick="toggleImage()">Click Me3</button>
-
-
-
-
 
 </body>
 
