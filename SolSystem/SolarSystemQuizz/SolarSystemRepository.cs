@@ -19,7 +19,14 @@ namespace SolarSystemQuizz
             {
                 foreach (var planet in star.Planets)
                 {
-                    planet.Moons = GetMoonsByParentId(planet.Id);
+                    if (planet.NumberOfMoons > 0)
+                    {
+                        planet.Moons = GetMoonsByParentId(planet.Id);
+                    }
+                    else
+                    {
+                        planet.Moons = new List<Moon>();
+                    }
                 }
             }
 
@@ -246,7 +253,7 @@ namespace SolarSystemQuizz
                 MySqlCommand command = new MySqlCommand(
                     "SELECT * FROM element e JOIN moons m ON m.ElementId = e.ID JOIN orbitingelement oe ON oe.ElementId = m.ElementId JOIN Pics p ON p.ElementId = e.ID WHERE m.Parent = @ParentId AND p.Comic = @GetComic;", connection);
                 command.Parameters.AddWithValue("@ParentId", parentId);
-                command.Parameters.AddWithValue("@GetComic", parentId);
+                command.Parameters.AddWithValue("@GetComic", getComic);
                 connection.Open();
                 MySqlDataReader reader = command.ExecuteReader();
                 if (reader.HasRows)
